@@ -117,7 +117,7 @@ export default function DisclaimerPage() {
             4. Limitation of Liability
           </h3>
           <p>
-            Under no circumstances shall PawFoodGuide, its owners, operators, writers, or board-certified clinical reviewers be held liable for any direct, indirect, incidental, consequential, special, or exemplary damages, illnesses, surgical emergencies, or veterinary medical expenses arising out of the use, interpretation, or reliance upon any material published on this platform.
+            Under no circumstances shall PawFoodGuide, its owners, operators, writers, or contributors be held liable for any direct, indirect, incidental, consequential, special, or exemplary damages, illnesses, surgical emergencies, or veterinary medical expenses arising out of the use, interpretation, or reliance upon any material published on this platform.
           </p>
 
           <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
