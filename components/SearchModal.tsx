@@ -79,7 +79,9 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         <div className="max-h-[60vh] overflow-y-auto p-3 divide-y divide-slate-100">
           {filteredFruits.length === 0 ? (
             <div className="p-8 text-center text-sm text-slate-500">
-              No matching fruits found for &quot;{query}&quot;. Try searching for &quot;Watermelon&quot;, &quot;Apples&quot;, or &quot;Grapes&quot;.
+              <p>No matching fruit guide for &quot;{query}&quot;.</p>
+              <p className="mt-2">For vegetables, prepared foods, and common dangerous ingredients, visit our general food safety guide.</p>
+              <Link href="/foods" onClick={onClose} className="mt-4 inline-block rounded-lg bg-emerald-700 px-4 py-2 font-bold text-white">Browse foods dogs can eat</Link>
             </div>
           ) : (
             filteredFruits.map((fruit) => {
