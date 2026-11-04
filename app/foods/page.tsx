@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { AlertTriangle, ArrowRight, ShieldCheck } from 'lucide-react';
 import { FOOD_GUIDES, type FoodGroup } from '@/lib/food-guides';
 export const metadata:Metadata={
- title:'Can Dogs Eat This? 22 Everyday Food Safety Guides',
+ title:'Can Dogs Eat This? 22 Everyday Food Guides',
  description:'Explore dog food safety guides for vegetables, eggs, rice, chicken, peanut butter, chocolate, grapes and more. Practical preparation and when to call a veterinarian.',
  alternates:{canonical:'https://pawfoodguide.com/foods'},
 };
