@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
-  PhoneCall,
   Search,
   Menu,
   X,
@@ -22,50 +21,26 @@ export default function Header() {
   const pathname = usePathname();
 
   const navLinks = [
-    { name: 'Database', href: '/fruits', icon: BookOpen },
-    { name: 'Calorie & Treat Calculator', href: '/calculator', icon: Calculator },
-    { name: 'Veterinary Research Standards', href: '/veterinary-standards', icon: ShieldCheck },
+    { name: 'Foods Dogs Can Eat', href: '/foods', icon: BookOpen },
+    { name: 'Fruit Guide', href: '/fruits', icon: BookOpen },
+    { name: 'Treat Calculator', href: '/calculator', icon: Calculator },
+    { name: 'Our Sources', href: '/veterinary-standards', icon: ShieldCheck },
     { name: 'About Us', href: '/about', icon: Info },
-    { name: 'Privacy Policy', href: '/privacy-policy', icon: ShieldCheck },
+    { name: 'Emergency', href: '/emergency', icon: ShieldAlert },
   ];
 
   return (
     <>
-      {/* 24/7 Emergency Poison Helpline Banner */}
-      <div className="sticky top-0 z-40 bg-gradient-to-r from-red-600 via-rose-600 to-red-700 text-white shadow-md">
-        <div className="mx-auto max-w-7xl px-4 py-2 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm">
-            <div className="flex items-center gap-2 font-medium">
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/20">
-                <ShieldAlert className="h-3.5 w-3.5 text-white" />
-              </span>
-              <span>
-                <strong className="font-bold">🐾 Emergency Helpline:</strong> Ingestion of grapes, raisins, or toxic seeds?
-              </span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <a
-                href="tel:8884264435"
-                className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1 text-xs font-black text-red-700 shadow-sm transition hover:bg-red-50 hover:scale-105"
-              >
-                <PhoneCall className="h-3 w-3 animate-pulse text-red-600" />
-                <span>(888) 426-4435</span>
-                <span className="hidden md:inline font-normal text-red-600/80">(24/7 ASPCA APCC)</span>
-              </a>
-              <Link
-                href="/disclaimer"
-                className="text-[11px] underline text-red-100 hover:text-white hidden lg:inline"
-              >
-                Poison Protocols
-              </Link>
-            </div>
-          </div>
+      <div className="border-b border-red-900 bg-red-800 py-2 text-white">
+        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-2 px-4 text-center text-xs font-semibold sm:text-sm">
+          <ShieldAlert className="h-4 w-4"/>
+          <span>Dog ate something dangerous? Call your local emergency veterinarian.</span>
+          <Link href="/emergency" className="font-bold underline hover:text-red-100">Emergency guidance</Link>
         </div>
       </div>
 
       {/* Main Sticky Navigation */}
-      <header className="sticky top-[37px] sm:top-[41px] z-30 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
+      <header className="sticky top-0 z-30 border-b border-slate-200/80 bg-white/95 backdrop-blur-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between gap-4">
             {/* Custom Vector SVG Animal Paw Logo */}
@@ -117,11 +92,11 @@ export default function Header() {
                     PawFood<span className="text-emerald-700">Guide</span>
                   </span>
                   <span className="rounded-md bg-emerald-100/80 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-emerald-800">
-                    USDA
+                    Food safety
                   </span>
                 </div>
                 <span className="text-[10px] font-medium tracking-wide text-slate-500">
-                  Canine Fruit Safety & Treat Science
+                  Everyday food safety for dogs
                 </span>
               </div>
             </Link>
@@ -152,12 +127,12 @@ export default function Header() {
                 type="button"
                 onClick={() => setSearchModalOpen(true)}
                 className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-500 hover:border-emerald-300 hover:bg-white hover:text-slate-900 transition shadow-xs"
-                aria-label="Search fruits database"
+                aria-label="Search dog food guides"
               >
                 <Search className="h-4 w-4 text-emerald-700" />
-                <span className="hidden sm:inline">Search fruit safety...</span>
+                <span className="hidden sm:inline">Find food guides...</span>
                 <kbd className="hidden sm:inline-block rounded bg-slate-200/80 px-1.5 py-0.5 text-[10px] font-mono font-bold text-slate-600">
-                  ⌘K
+                  Search
                 </kbd>
               </button>
 
@@ -195,14 +170,10 @@ export default function Header() {
                 </Link>
               );
             })}
-            <div className="pt-3 border-t border-slate-100 mt-2">
-              <a
-                href="tel:8884264435"
-                className="flex items-center justify-center gap-2 rounded-xl bg-red-600 py-3 text-sm font-bold text-white shadow-sm hover:bg-red-700"
-              >
-                <PhoneCall className="h-4 w-4" />
-                <span>Call Animal Poison Helpline (24/7)</span>
-              </a>
+            <div className="mt-2 border-t border-slate-100 pt-3">
+              <Link href="/emergency" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center gap-2 rounded-xl bg-red-700 py-3 text-sm font-bold text-white">
+                <ShieldAlert className="h-4 w-4"/> Emergency advice
+              </Link>
             </div>
           </div>
         )}

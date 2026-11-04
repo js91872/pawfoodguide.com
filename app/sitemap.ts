@@ -1,66 +1,12 @@
-import { MetadataRoute } from 'next';
+import type { MetadataRoute } from 'next';
 import { FRUITS_DATABASE } from '@/lib/fruits-data';
-
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://pawfoodguide.com';
-
-  const staticRoutes: MetadataRoute.Sitemap = [
-    {
-      url: baseUrl,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/fruits`,
-      lastModified: new Date(),
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/calculator`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/veterinary-standards`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/disclaimer`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/terms`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
-  ];
-
-  const fruitRoutes: MetadataRoute.Sitemap = FRUITS_DATABASE.map((fruit) => ({
-    url: `${baseUrl}/fruits/${fruit.slug}`,
-    lastModified: new Date(fruit.lastReviewedDate),
-    changeFrequency: 'weekly',
-    priority: 0.85,
-  }));
-
-  return [...staticRoutes, ...fruitRoutes];
+import { FOOD_GUIDES } from '@/lib/food-guides';
+const origin='https://pawfoodguide.com';
+const updated=new Date('2026-11-04T00:00:00Z');
+export default function sitemap():MetadataRoute.Sitemap{
+ const pages=['','/foods','/fruits','/calculator','/emergency','/about','/veterinary-standards','/disclaimer','/privacy-policy','/terms'];
+ const staticPages=pages.map((path)=>({url:`${origin}${path}`,lastModified:updated,changeFrequency:'monthly' as const,priority:path===''?1:path==='/foods'||path==='/fruits'?0.9:0.5}));
+ const foods=FOOD_GUIDES.map(food=>({url:`${origin}/foods/${food.slug}`,lastModified:updated,changeFrequency:'monthly' as const,priority:0.8}));
+ const fruits=FRUITS_DATABASE.map(fruit=>({url:`${origin}/fruits/${fruit.slug}`,lastModified:updated,changeFrequency:'monthly' as const,priority:0.8}));
+ return [...staticPages,...foods,...fruits];
 }

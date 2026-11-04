@@ -1,0 +1,248 @@
+export type FoodSafety = 'safe' | 'caution' | 'unsafe';
+export type FoodGroup = 'Vegetables' | 'Everyday foods' | 'Proteins' | 'Foods to avoid';
+
+export interface FoodGuide {
+  slug: string;
+  name: string;
+  group: FoodGroup;
+  status: FoodSafety;
+  answer: string;
+  explanation: string;
+  preparation: string[];
+  avoid: string;
+  ifEaten: string;
+  sourceUrls: string[];
+  aliases?: string[];
+}
+
+export const REFERENCES = {
+  wsava: 'https://wsava.org/wp-content/uploads/2024/06/Feeding-treats-to-your-dog-v2.pdf',
+  wsavaGuidelines: 'https://wsava.org/global-guidelines/global-nutrition-guidelines/',
+  aspca: 'https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets',
+  fda: 'https://www.fda.gov/animal-veterinary/animal-health-literacy/potentially-dangerous-items-your-pet',
+  pdsa: 'https://www.pdsa.org.uk/pet-help-and-advice/looking-after-your-pet/all-pets/poisons-and-hazards-for-your-pets',
+  pdsaEmergency: 'https://www.pdsa.org.uk/pet-help-and-advice/pet-health-hub/symptoms/my-dog-has-eaten-something-harmful',
+  rspca: 'https://kb.rspca.org.au/categories/companion-animals/dogs/caring-for-my-dog/what-should-i-feed-my-dog',
+  fdaBalanced: 'https://www.fda.gov/animal-veterinary/animal-health-literacy/complete-and-balanced-pet-food',
+} as const;
+
+// These are editorial summaries of general guidance, not individual veterinary diagnoses.
+// Source links support general safe handling, nutrition, or documented toxin risks;
+// they do not imply that an organization reviewed or endorsed this page.
+export const FOOD_GUIDES: FoodGuide[] = [
+  {
+    slug:'carrots', name:'Carrots', group:'Vegetables', status:'safe',
+    answer:'Yes. Most healthy dogs can have a little plain carrot as an occasional snack.',
+    explanation:'Carrots can add crunch and variety, but they are not a substitute for complete dog food. Large hard pieces may cause choking, especially for small dogs or dogs that gulp food.',
+    preparation:['Wash thoroughly and remove any spoiled parts.','Cut into small pieces appropriate for your dog; soften or cook without seasoning if needed.','Start with a few bites and watch for digestive upset.'],
+    avoid:'Avoid salted, buttered, spiced or sweetened carrot dishes.',
+    ifEaten:'Plain carrot is usually not an emergency. Contact your veterinarian if there is choking, persistent vomiting or distress.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+  },
+  {
+    slug:'cucumber', name:'Cucumber', group:'Vegetables', status:'safe',
+    answer:'Yes. Plain cucumber can be a refreshing treat in small amounts.',
+    explanation:'Its high water content does not make it a complete food. Very large chunks can pose a choking risk.',
+    preparation:['Wash the cucumber.','Cut into small slices or pieces.','Offer plain, starting with a small amount.'],
+    avoid:'Do not offer pickles or cucumber with salt, onion, garlic or rich dressing.',
+    ifEaten:'If your dog becomes unwell or swallowed a large piece that may be stuck, contact a veterinarian.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+  },
+  {
+    slug:'pumpkin', name:'Pumpkin', group:'Vegetables', status:'safe',
+    answer:'Plain, cooked pumpkin can be fed in modest amounts.',
+    explanation:'The amount that suits your dog varies. It is not a cure for persistent digestive symptoms or a replacement for a prescribed diet.',
+    preparation:['Cook until soft, or choose plain pumpkin purée with no additives.','Serve a small amount without seasonings.','Ask a veterinarian before using it to manage ongoing diarrhoea or constipation.'],
+    avoid:'Avoid pumpkin pie filling, nutmeg, sugar, butter and other added ingredients.',
+    ifEaten:'If your dog ate pumpkin mixed with unsafe ingredients or has ongoing vomiting or diarrhoea, contact your veterinarian.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+    aliases:['squash','pumpkin puree'],
+  },
+  {
+    slug:'green-beans', name:'Green beans', group:'Vegetables', status:'safe',
+    answer:'Yes. Plain green beans can be offered in small, bite-sized portions.',
+    explanation:'They are a low-energy snack option, but should not displace balanced meals.',
+    preparation:['Wash thoroughly.','Serve plain and cut to reduce choking risk.','If using canned beans, choose no-added-salt varieties and drain them.'],
+    avoid:'Avoid green bean casseroles, onion, garlic, butter and heavy seasoning.',
+    ifEaten:'Seek advice if your dog swallowed a large piece, has repeated vomiting or appears distressed.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+  },
+  {
+    slug:'sweet-potatoes', name:'Sweet potatoes', group:'Vegetables', status:'safe',
+    answer:'Plain, thoroughly cooked sweet potato can be an occasional treat.',
+    explanation:'Sweet potatoes contain carbohydrates and calories, so portions should stay small. Do not assume they are suitable for every dog with a medical condition.',
+    preparation:['Cook thoroughly until soft.','Remove tough skin if needed, and cut or mash into small portions.','Allow to cool and serve plain.'],
+    avoid:'Avoid raw large chunks, sweetened dishes, butter and spices.',
+    ifEaten:'Contact a veterinarian if your dog ate an unsafe preparation or develops persistent symptoms.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+    aliases:['sweet potato'],
+  },
+  {
+    slug:'broccoli', name:'Broccoli', group:'Vegetables', status:'caution',
+    answer:'Dogs may have a little plain broccoli, but too much can upset the stomach.',
+    explanation:'Broccoli florets can cause gas or digestive irritation, and stems can pose choking or blockage risks.',
+    preparation:['Wash and cut into very small pieces.','Cook plain if that makes the texture safer for your dog.','Offer only a small amount and stop if it causes discomfort.'],
+    avoid:'Avoid large stems, fried broccoli, cheese sauce, garlic, onion and butter.',
+    ifEaten:'Contact a veterinarian if a large stem was swallowed or your dog has pain, bloating or repeated vomiting.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+  },
+  {
+    slug:'rice', name:'Rice', group:'Everyday foods', status:'safe',
+    answer:'Yes. Dogs can generally eat a little plain, fully cooked rice.',
+    explanation:'Rice is not a complete and balanced diet by itself. Do not use rice-only diets for several days or replace treatment for vomiting or diarrhoea without veterinary guidance.',
+    preparation:['Cook fully in water.','Serve plain, cooled and in a modest portion.','Keep the regular complete diet as the main food.'],
+    avoid:'Avoid fried rice, spicy rice, onion, garlic, stock cubes and salty sauces.',
+    ifEaten:'Contact a veterinarian if your dog ate rice containing toxic ingredients or has ongoing digestive symptoms.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.fdaBalanced],
+    aliases:['white rice','brown rice'],
+  },
+  {
+    slug:'eggs', name:'Eggs', group:'Proteins', status:'safe',
+    answer:'Yes. Fully cooked, plain eggs can be an occasional extra for many dogs.',
+    explanation:'Eggs add calories and do not replace nutritionally complete dog food. Food-borne pathogens are a concern with raw egg.',
+    preparation:['Cook thoroughly without oil, butter or seasonings.','Cool and chop into an appropriate portion.','Introduce gradually.'],
+    avoid:'Avoid raw eggs, onion, garlic, heavily salted eggs and rich sauces.',
+    ifEaten:'Call your veterinarian if your dog develops persistent vomiting, diarrhoea or weakness.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+    aliases:['egg','boiled eggs','scrambled eggs'],
+  },
+  {
+    slug:'chicken', name:'Chicken', group:'Proteins', status:'safe',
+    answer:'Plain, fully cooked, boneless chicken can be given in small amounts.',
+    explanation:'Unseasoned lean meat is often tolerated, but cooked bones can splinter and raw meat may carry pathogens. Chicken alone is not a balanced long-term diet.',
+    preparation:['Cook fully and remove all bones and skin.','Let it cool and shred or cut into bite-sized pieces.','Serve without sauces or seasoning.'],
+    avoid:'Avoid cooked bones, raw chicken, onion, garlic and greasy skin.',
+    ifEaten:'Seek veterinary help for swallowed bones, choking, repeated vomiting or pain.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+    aliases:['cooked chicken','boiled chicken'],
+  },
+  {
+    slug:'fish', name:'Fish', group:'Proteins', status:'caution',
+    answer:'Some thoroughly cooked, boneless fish is suitable in small portions.',
+    explanation:'Bones can injure or obstruct the digestive tract. Raw fish can pose parasite or infection risks; salted or smoked products add other concerns.',
+    preparation:['Cook thoroughly without seasonings.','Carefully remove bones, skin and sharp fragments.','Offer small portions, not a replacement for complete food.'],
+    avoid:'Avoid fish bones, raw fish, heavily salted, smoked or battered fish.',
+    ifEaten:'Call your veterinarian if your dog swallowed a bone, is choking or has ongoing symptoms.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+    aliases:['salmon','tuna','cooked fish'],
+  },
+  {
+    slug:'plain-yogurt', name:'Plain yogurt', group:'Everyday foods', status:'caution',
+    answer:'A little unsweetened plain yogurt may be tolerated by some dogs, but dairy causes digestive upset in others.',
+    explanation:'Dogs vary in lactose tolerance. Avoid products with sugar substitutes and do not assume yogurt treats a digestive condition.',
+    preparation:['Check for plain, unsweetened ingredients.','Start with a tiny amount if your dog tolerates dairy.','Stop if vomiting, gas or diarrhoea occurs.'],
+    avoid:'Avoid xylitol (birch sugar), chocolate, flavourings and high-sugar yogurt.',
+    ifEaten:'Check ingredients immediately; suspected xylitol ingestion requires urgent veterinary care.',
+    sourceUrls:[REFERENCES.aspca,REFERENCES.wsava],
+    aliases:['yoghurt','curd','dahi'],
+  },
+  {
+    slug:'peanut-butter', name:'Peanut butter', group:'Everyday foods', status:'caution',
+    answer:'A small amount may be suitable only when the ingredients are checked carefully.',
+    explanation:'Peanut butter is high in fat and calories. Some brands use xylitol (birch sugar), which is highly toxic to dogs.',
+    preparation:['Read the full label every time.','Choose a product without xylitol, chocolate or added unsafe ingredients.','Offer only a small taste.'],
+    avoid:'Never give peanut butter containing xylitol or birch sugar. Avoid large amounts due to fat and calories.',
+    ifEaten:'If xylitol may be present, seek emergency veterinary help immediately, even if your dog appears normal.',
+    sourceUrls:[REFERENCES.aspca,REFERENCES.fda],
+    aliases:['peanut spread'],
+  },
+  {
+    slug:'bread', name:'Bread', group:'Everyday foods', status:'caution',
+    answer:'A small bite of plain, fully baked bread is usually not harmful, but it offers little nutritional benefit.',
+    explanation:'Bread may contain dangerous additions such as raisins, onion, garlic or xylitol. Raw yeast dough is a medical emergency.',
+    preparation:['Check all ingredients.','Offer only a small bite of plain baked bread.','Prefer nutritionally appropriate dog treats instead.'],
+    avoid:'Never give raw yeast dough, raisin bread, garlic bread or sweetener-containing bread.',
+    ifEaten:'Raw yeast dough or raisin bread ingestion requires immediate veterinary assessment.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.aspca],
+    aliases:['toast','roti','chapati','naan'],
+  },
+  {
+    slug:'oats', name:'Oats', group:'Everyday foods', status:'safe',
+    answer:'Plain, cooked oats can be an occasional small food extra.',
+    explanation:'Oatmeal is not a substitute for a complete diet. Flavoured instant oat products may contain excessive sugar or unsuitable additions.',
+    preparation:['Cook in water and allow to cool.','Offer a small amount without sugar or seasoning.','Introduce gradually.'],
+    avoid:'Avoid chocolate, raisins, xylitol, nutmeg and sweetened oatmeal mixes.',
+    ifEaten:'If unsafe ingredients were included, consult a veterinarian promptly.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.rspca],
+    aliases:['oatmeal','porridge'],
+  },
+  {
+    slug:'cheese', name:'Cheese', group:'Everyday foods', status:'caution',
+    answer:'Some dogs tolerate a little plain cheese, but high fat and lactose can cause problems.',
+    explanation:'High-fat foods can aggravate digestive conditions, and many dogs do not tolerate dairy well.',
+    preparation:['Offer only a tiny amount of plain cheese if tolerated.','Check ingredients carefully.','Ask your veterinarian if your dog has pancreatitis or a prescribed diet.'],
+    avoid:'Avoid blue cheese, strongly seasoned products, onion, garlic and large portions.',
+    ifEaten:'Seek veterinary advice if symptoms develop or an unsafe ingredient was present.',
+    sourceUrls:[REFERENCES.aspca,REFERENCES.wsava],
+  },
+  {
+    slug:'chocolate', name:'Chocolate', group:'Foods to avoid', status:'unsafe',
+    answer:'No. Chocolate and cocoa can poison dogs. Seek veterinary advice immediately after ingestion.',
+    explanation:'Chocolate contains methylxanthines, including theobromine and caffeine. Risk depends on chocolate type, quantity and your dog’s size, but symptoms may be delayed.',
+    preparation:['Keep chocolate and cocoa products secured.','Save the wrapper and estimate the amount eaten if exposure occurs.','Contact your veterinarian or emergency animal clinic immediately.'],
+    avoid:'All chocolate and cocoa products, especially concentrated cocoa powder and dark baking chocolate.',
+    ifEaten:'Call a veterinarian urgently. Do not attempt home treatment or induce vomiting unless instructed by a professional.',
+    sourceUrls:[REFERENCES.aspca,REFERENCES.pdsa,REFERENCES.fda],
+    aliases:['cocoa','dark chocolate','milk chocolate'],
+  },
+  {
+    slug:'grapes-raisins', name:'Grapes, raisins and sultanas', group:'Foods to avoid', status:'unsafe',
+    answer:'No. Grapes and dried grapes can cause life-threatening kidney injury in dogs.',
+    explanation:'The toxic amount is unpredictable. Raisins, sultanas, currants and foods that contain them also present risks.',
+    preparation:['Keep grapes and dried grapes out of reach.','Check breads, cakes and snack mixes for dried fruit.','Save ingredient labels after suspected ingestion.'],
+    avoid:'All grapes, raisins, sultanas, dried grapes and grape-containing foods.',
+    ifEaten:'Seek emergency veterinary advice immediately, even if your dog seems well. Do not wait for symptoms.',
+    sourceUrls:[REFERENCES.pdsa,REFERENCES.aspca],
+    aliases:['grapes','raisins','sultanas','currants'],
+  },
+  {
+    slug:'onions-garlic', name:'Onions, garlic and other alliums', group:'Foods to avoid', status:'unsafe',
+    answer:'No. Onions, garlic, leeks and chives can harm dogs, whether raw, cooked or powdered.',
+    explanation:'Allium ingredients may damage red blood cells. Symptoms and anaemia can be delayed; concentrated powders can be especially concerning.',
+    preparation:['Keep onion and garlic powders safely stored.','Check gravy, curry, sauces, stocks and prepared meals.','Call your veterinarian after suspected ingestion.'],
+    avoid:'Onion, garlic, leeks, shallots, chives and products containing them.',
+    ifEaten:'Contact a veterinarian promptly with the ingredients, amount and time of ingestion.',
+    sourceUrls:[REFERENCES.pdsa,REFERENCES.aspca,REFERENCES.rspca],
+    aliases:['onion','garlic','leeks','chives','shallots'],
+  },
+  {
+    slug:'xylitol', name:'Xylitol / birch sugar', group:'Foods to avoid', status:'unsafe',
+    answer:'No. Xylitol is an emergency-level sweetener hazard for dogs.',
+    explanation:'Xylitol can cause a rapid drop in blood sugar and serious liver injury. It may appear in sugar-free gum, sweets, baked goods and some nut butters.',
+    preparation:['Inspect ingredient lists for xylitol or birch sugar.','Store sugar-free products away from dogs.','Bring the product packaging to the vet.'],
+    avoid:'Any food or product containing xylitol, also called birch sugar.',
+    ifEaten:'Seek emergency veterinary care immediately. Do not wait for signs or attempt to give sugar without professional instruction.',
+    sourceUrls:[REFERENCES.aspca,REFERENCES.fda],
+    aliases:['birch sugar','sugar free gum'],
+  },
+  {
+    slug:'macadamia-nuts', name:'Macadamia nuts', group:'Foods to avoid', status:'unsafe',
+    answer:'No. Macadamia nuts can cause illness in dogs.',
+    explanation:'Affected dogs may show weakness, vomiting, tremors or elevated body temperature. Other ingredients in nut snacks may add hazards.',
+    preparation:['Keep nuts and mixed snacks secure.','Check baked goods for hidden nuts.','Note the amount eaten before contacting your veterinarian.'],
+    avoid:'Macadamia nuts and foods containing them.',
+    ifEaten:'Call your veterinarian promptly for an individual risk assessment.',
+    sourceUrls:[REFERENCES.aspca,REFERENCES.wsava],
+  },
+  {
+    slug:'alcohol', name:'Alcohol', group:'Foods to avoid', status:'unsafe',
+    answer:'No. Alcohol-containing drinks and foods are unsafe for dogs.',
+    explanation:'Alcohol can affect breathing, blood sugar and neurological function. Raw yeast dough can produce alcohol inside the stomach as it expands.',
+    preparation:['Keep drinks and food preparations out of reach.','Remember that some desserts, extracts and fermented items contain alcohol.','Secure raw bread dough during preparation.'],
+    avoid:'Alcoholic drinks, alcohol-containing desserts, fermented products and raw yeast dough.',
+    ifEaten:'Contact an emergency veterinarian immediately. Do not induce vomiting without instructions.',
+    sourceUrls:[REFERENCES.wsava,REFERENCES.aspca,REFERENCES.fda],
+    aliases:['beer','wine','spirits','raw dough'],
+  },
+  {
+    slug:'coffee-tea', name:'Coffee, tea and caffeine', group:'Foods to avoid', status:'unsafe',
+    answer:'No. Caffeinated beverages and caffeine-containing products are unsafe for dogs.',
+    explanation:'Caffeine is a stimulant that may lead to restlessness, abnormal heart rhythms and other serious symptoms.',
+    preparation:['Keep coffee grounds, tea bags and energy drinks out of reach.','Secure tablets and supplements containing caffeine.','Keep any packaging for a veterinarian if exposure occurs.'],
+    avoid:'Coffee, tea, energy drinks, caffeine tablets and concentrated caffeine powders.',
+    ifEaten:'Contact a veterinarian promptly for advice on the amount and product involved.',
+    sourceUrls:[REFERENCES.pdsa,REFERENCES.fda,REFERENCES.wsava],
+    aliases:['coffee','tea','caffeine','energy drinks'],
+  },
+];
+export const getFoodGuide = (slug: string) => FOOD_GUIDES.find(x => x.slug === slug);

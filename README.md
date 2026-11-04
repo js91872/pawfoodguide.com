@@ -1,103 +1,58 @@
-# PawFoodGuide.com 🐾
+# PawFoodGuide
 
-> **Peer-Reviewed Canine Fruit Safety, USDA Nutrition Data, & Vet-Backed Serving Calculators.**
+**Food safety answers for dog owners around the world.** PawFoodGuide is an English-language, consumer-oriented resource about everyday foods dogs can and cannot eat, practical preparation, common hazards and occasional treats.
 
-PawFoodGuide is an independent canine clinical nutrition research portal engineered to provide pet parents, veterinary professionals, and dog owners with peer-reviewed fruit safety data, verified USDA FoodData Central chemical breakdowns, and real-time metabolic energy (RER) treat calculators.
+## Published routes
 
-[![Next.js](https://img.shields.io/badge/Next.js-16.4-black?style=flat&logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-blue?style=flat&logo=react)](https://react.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=flat&logo=typescript)](https://www.typescriptlang.org/)
-[![License](https://img.shields.io/badge/License-Proprietary-emerald)](#)
+- `/` — homepage, frequently asked food questions and guides
+- `/foods` — 22 common food guides by category
+- `/foods/[slug]` — individual food articles
+- `/fruits` — directory of 16 fruit guides
+- `/fruits/[slug]` — individual fruit articles
+- `/calculator` — estimated adult dog calorie and treat allowance, metric-first with pounds option
+- `/emergency` — worldwide emergency orientation with clearly labeled regional references
+- `/veterinary-standards` — sources and editorial approach
+- `/about`, `/disclaimer`, `/privacy-policy`, `/terms`
 
----
+## Code and running locally
 
-## 🌟 Core Features & Architecture
+Next.js 16.4.4, React 19, Tailwind CSS 4, TypeScript and the standard Tailwind PostCSS integration.
 
-### 1. Interactive USDA & RER Calorie Calculator
-- Computes **Resting Energy Requirement (RER)**:
-  $$\text{RER} = 70 \times (\text{weight}_{\text{kg}})^{0.75}$$
-- Computes **Maintenance Energy Requirement (MER)** with life-stage multipliers (Neutered Adult, Intact, Active, Senior, Puppy, Weight Loss).
-- Enforces the strict **veterinary 10% daily treat rule**.
-- Instant conversion toggle between **lbs** and **kg**.
-- Quick breed presets (Chihuahua, Beagle, Golden Retriever, German Shepherd, Mastiff).
-- Dynamically outputs safe gram limits and practical portion recommendations, or displays immediate crimson emergency warnings for toxic items (Grapes, Cherries).
-
-### 2. 16-Fruit Clinical Research Database
-Comprehensive dossiers for 16 fruits:
-- **Bananas** (`/fruits/bananas`) — Safe in Moderation (High potassium & B6)
-- **Strawberries** (`/fruits/strawberries`) — Canine Superfood (Malic acid teeth cleansing)
-- **Apples** (`/fruits/apples`) — Safe Cored/Deseeded (Pectin fiber, cyanide seed warning)
-- **Blueberries** (`/fruits/blueberries`) — Premier Superfood (Anthocyanins, low calorie)
-- **Pineapple** (`/fruits/pineapple`) — Safe Flesh (Bromelain enzyme, rind foreign body hazard)
-- **Mango** (`/fruits/mango`) — Safe Flesh (Beta-carotene, lethal stone pit hazard)
-- **Grapes** (`/fruits/grapes`) — ⛔ **DEADLY TOXIC** (Tartaric acid acute renal necrosis)
-- **Avocado** (`/fruits/avocado`) — ⚠️ High Risk (Persin toxin, pancreatitis fat density, pit blockage)
-- **Watermelon** (`/fruits/watermelon`) — Hydrating Superfood (92% moisture, lycopene)
-- **Oranges** (`/fruits/oranges`) — Safe Flesh (High citric acid, peel essential oil toxicity)
-- **Pears** (`/fruits/pears`) — Safe Flesh (Copper, vitamin K, seeds amygdalin warning)
-- **Peaches** (`/fruits/peaches`) — Safe Flesh (Lutein, jagged pit laceration hazard)
-- **Raspberries** (`/fruits/raspberries`) — ⚠️ Caution (Natural xylitol portion limit)
-- **Cherries** (`/fruits/cherries`) — ⛔ **TOXIC / DANGEROUS** (Cyanogenic glycosides in pits/stems)
-- **Kiwi** (`/fruits/kiwi`) — Safe Flesh (Actinidain protease, fuzzy skin irritant)
-- **Papaya** (`/fruits/papaya`) — Safe Flesh (Papain enzyme, peppery seeds irritant)
-
-### 3. SEO & Structured Data (JSON-LD)
-- Direct **Zero-Click Answer** blocks formatted for Google AI Overviews.
-- **Ubersuggest Market Metrics Panels** integrating real search volumes, difficulty, and CPC benchmarks.
-- Injected Schema.org markup on every article:
-  - `Article`
-  - `MedicalWebPage`
-  - `FAQPage`
-  - `BreadcrumbList`
-- Full XML `sitemap.xml` and `robots.txt` generated automatically.
-
-### 4. E-E-A-T & Google AdSense Policy Compliance
-- **Emergency Poison Helpline Ribbon**: 24/7 direct dial to ASPCA APCC `(888) 426-4435`.
-- **Veterinary Advisory Board**: Reviewed by Board-Certified Veterinary Clinical Nutritionists (DACVIM) and Veterinary Surgeons (MRCVS).
-- **Veterinary Medical Disclaimer**: Clear legal notifications on non-clinical educational usage.
-- **Privacy Policy & Terms**: Fully compliant with Google AdSense, GDPR, and CCPA standards.
-
----
-
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/)
-- **UI Engine**: React 19
-- **Styling**: Tailwind CSS v4 with custom tokens (Emerald/Slate palette)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Font**: Inter (`next/font/google`)
-- **Compilation**: Next.js Turbopack
-
----
-
-## 🚀 Getting Started
-
-### Prerequisites
-- Node.js 20+ (Node v22 recommended)
-- npm 10+
-
-### Installation
 ```bash
-git clone https://github.com/js91872/pawfoodguide.com.git
-cd pawfoodguide.com
-npm install
-```
-
-### Development Server
-```bash
-npm run dev
-```
-Open [http://localhost:3000](http://localhost:3000) in your browser.
-
-### Production Build
-```bash
+npm ci
+npm run lint
+npx tsc --noEmit
 npm run build
-npm run start
+npm run dev -- -p 3006
 ```
 
----
+Open http://localhost:3006.
 
-## 📄 License & Disclaimer
+GitHub Actions performs a reproducible `npm ci`, ESLint, TypeScript and production build check on pull requests and `main`.
 
-The information on PawFoodGuide.com is provided strictly for educational and informational purposes. It does not constitute formal veterinary medical advice. Always consult a licensed veterinarian regarding individual dietary allergies or suspected toxic ingestions.
+## Editorial policy
+
+PawFoodGuide is an independent educational site, **not a veterinary hospital, professional review board or emergency service**. Do not add fictional reviewers, unverified dates, claimed endorsements, invented qualifications or false government approvals.
+
+Safety guidance should be grounded in resources from reputable bodies such as WSAVA, ASPCA, FDA, PDSA and RSPCA. Linking to an agency does not mean it approved PawFoodGuide or reviewed a specific article. Food questions often require nuance: safe flesh may coexist with unsafe pits, seeds or added ingredients. Especially risky food consumption must direct readers to local veterinary help immediately.
+
+The 10% rule is an overall guideline for *all treats combined*, not a safe gram-based portion of any specific food. Calculator output is an approximation for generally healthy adult dogs, not an individual veterinary diet plan.
+
+## International scope
+
+Do not assume visitors are in the USA. Use clear international English, metric as the default with imperial available, regional product names where useful, and local-vet-first poisoning advice. US, UK and Australian resources may be linked when clearly labeled. Do not invent local emergency telephone numbers or imply a US service covers other jurisdictions.
+
+## SEO and monetization
+
+Write for the person asking the question, not for an SEO dashboard. Keep public pages free of monthly search volumes, advertiser CPC, difficulty numbers, AdSense application status and private strategy notes. Each article should answer the question clearly, explain preparation, identify hazards, link to reputable published guidance and provide helpful related links.
+
+Advertising or affiliate partnerships can be considered later. Disclose arrangements accurately and implement legally appropriate cookie/consent choices before switching them on. No site should claim ad-network approval without evidence.
+
+## Before advertising or launch
+
+- Verify actual production analytics, cookies, logs and consent handling against the privacy policy.
+- Set up and test a genuine contact address or private support method; do not publish a nonfunctional mailbox.
+- Independently verify source URLs and safety nuances before expanding the library, including individual body-condition advice and food-specific allergies.
+- Verify usage rights/attribution for external photographs; replace unsuitable images.
+- Add a genuine veterinary reviewer only after an actual documented review and explicit permission to display credentials.
+- Monitor search performance privately in Search Console; do not expose analytics values to website visitors.
