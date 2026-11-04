@@ -88,13 +88,13 @@ export default function TreatCalculator({
         <div>
           <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-800">
             <Calculator className="h-3.5 w-3.5 text-emerald-600" />
-            <span>Veterinary Nutrition Calculator</span>
+            <span>Dog treat portion estimator</span>
           </div>
           <h3 className="mt-2 text-2xl font-bold tracking-tight text-slate-900">
-            USDA Canine Calorie & Treat Calculator
+            Dog calorie and treat calculator
           </h3>
           <p className="mt-1 text-sm text-slate-550 text-slate-600">
-            Calculates Resting Energy Requirement (RER) and enforces the strict veterinary 10% treat rule.
+            Estimates daily calorie needs and a possible treat allowance; ask your vet for an individual feeding plan.
           </p>
         </div>
 
@@ -226,7 +226,7 @@ export default function TreatCalculator({
               </select>
             </div>
             <p className="mt-1.5 text-xs text-slate-500">
-              Nutritional values pulled directly from verified USDA FoodData Central profile (FDC ID #{selectedFruit.usda.fdcId}).
+              Nutrition values are approximate reference amounts per 100 g and can vary by food and preparation.
             </p>
           </div>
 
@@ -305,7 +305,7 @@ export default function TreatCalculator({
 
                 <div className="text-xs text-red-950 space-y-2 bg-white/80 rounded-xl p-4 border border-red-200">
                   <p className="font-bold text-red-900">
-                    Clinical Danger: {selectedFruit.toxicologyRisks.toxicAgent}
+                    Potential hazard: {selectedFruit.toxicologyRisks.toxicAgent}
                   </p>
                   <p className="leading-relaxed">
                     {selectedFruit.toxicologyRisks.description}
