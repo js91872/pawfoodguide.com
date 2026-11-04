@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import { FRUITS_DATABASE, getFruitBySlug, getAllFruitSlugs } from '@/lib/fruits-data';
+import { getFruitBySlug, getAllFruitSlugs } from '@/lib/fruits-data';
 import NutritionalTable from '@/components/NutritionalTable';
 import PreparationChecklist from '@/components/PreparationChecklist';
 import AccordionFaq from '@/components/AccordionFaq';
@@ -15,13 +15,8 @@ import {
   CheckCircle2,
   Sparkles,
   PhoneCall,
-  Calendar,
-  UserCheck,
-  ShieldCheck,
   ArrowLeft,
   BookOpen,
-  HelpCircle,
-  ExternalLink,
 } from 'lucide-react';
 
 type Props = {
