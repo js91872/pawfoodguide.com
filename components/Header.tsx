@@ -27,7 +27,6 @@ export default function Header() {
     { name: 'Treat Calculator', href: '/calculator', icon: Calculator },
     { name: 'Our Sources', href: '/veterinary-standards', icon: ShieldCheck },
     { name: 'About Us', href: '/about', icon: Info },
-    { name: 'Privacy Policy', href: '/privacy-policy', icon: ShieldCheck },
   ];
 
   return (
@@ -158,7 +157,7 @@ export default function Header() {
                 <Search className="h-4 w-4 text-emerald-700" />
                 <span className="hidden sm:inline">Search fruits and foods...</span>
                 <kbd className="hidden sm:inline-block rounded bg-slate-200/80 px-1.5 py-0.5 text-[10px] font-mono font-bold text-slate-600">
-                  ⌘K
+                  Ctrl K
                 </kbd>
               </button>
 
