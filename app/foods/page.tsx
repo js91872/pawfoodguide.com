@@ -1,26 +1,34 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { AlertTriangle, ArrowRight, CheckCircle2 } from 'lucide-react';
-export const metadata: Metadata = {title:'What Can Dogs Eat? Food Safety Guide',description:'Common foods dogs can and cannot eat, preparation tips, and when to call your veterinarian.',alternates:{canonical:'https://pawfoodguide.com/foods'}};
-const everyday=[
- {food:'Carrots',answer:'Plain, washed, and cut into bite-sized pieces can be an occasional treat. Avoid seasoning.',warning:false},
- {food:'Cucumber',answer:'Plain cucumber can be offered in small pieces. Avoid pickles and salty dressings.',warning:false},
- {food:'Plain cooked pumpkin',answer:'Small amounts of unseasoned pumpkin may be suitable. Avoid pumpkin pie filling.',warning:false},
- {food:'Fully cooked eggs',answer:'Plain cooked eggs can be a treat. Skip raw eggs, oil-heavy preparations, and seasoning.',warning:false},
- {food:'Plain cooked rice',answer:'Small portions may be appropriate for some dogs, but rice is not a complete diet.',warning:false},
- {food:'Peanut butter',answer:'Check every ingredient. Never give peanut butter containing xylitol (also called birch sugar). Offer only a little.',warning:true},
-];
-const dangers=[
- {food:'Grapes and raisins',detail:'Can cause sudden kidney injury. Treat any ingestion as urgent.'},
- {food:'Chocolate',detail:'Contains theobromine and caffeine, which can be toxic to dogs.'},
- {food:'Onions and garlic',detail:'All forms, including powders, may damage dogs’ red blood cells.'},
- {food:'Xylitol / birch sugar',detail:'This sweetener can cause severe low blood sugar and liver injury.'},
-];
-export default function FoodsPage(){return <main className="min-h-screen bg-slate-50">
-<header className="bg-emerald-950 px-4 py-14 text-white"><div className="mx-auto max-w-5xl"><p className="font-semibold text-emerald-200">Dog food safety</p><h1 className="mt-2 text-4xl font-extrabold sm:text-5xl">What foods can dogs eat?</h1><p className="mt-4 max-w-2xl text-lg text-emerald-50">Check everyday ingredients, learn what to avoid, and find practical fruit guides.</p></div></header>
-<div className="mx-auto max-w-5xl space-y-12 px-4 py-12">
-<section><h2 className="text-2xl font-extrabold text-slate-900">Everyday foods: preparation matters</h2><p className="mt-2 text-slate-600">These are general tips for healthy dogs. Introduce foods gradually, keep portions small, and ask your vet about any dietary restrictions.</p><div className="mt-6 grid gap-4 sm:grid-cols-2">{everyday.map(item=><article key={item.food} className="rounded-2xl border border-slate-200 bg-white p-5"><div className="flex items-center gap-2">{item.warning?<AlertTriangle className="h-5 w-5 text-amber-600"/>:<CheckCircle2 className="h-5 w-5 text-emerald-700"/>}<h3 className="font-bold text-slate-900">{item.food}</h3></div><p className="mt-2 text-sm leading-relaxed text-slate-700">{item.answer}</p></article>)}</div></section>
-<section><h2 className="text-2xl font-extrabold text-slate-900">Foods to keep away from dogs</h2><p className="mt-2 text-slate-600">Do not wait for symptoms if your dog has swallowed a potentially toxic ingredient.</p><div className="mt-6 grid gap-4 sm:grid-cols-2">{dangers.map(item=><article key={item.food} className="rounded-2xl border border-red-200 bg-red-50 p-5"><h3 className="flex items-center gap-2 font-bold text-red-950"><AlertTriangle className="h-5 w-5"/>{item.food}</h3><p className="mt-2 text-sm text-red-900">{item.detail}</p></article>)}</div><p className="mt-4 text-sm text-slate-700">Call your veterinarian or emergency animal hospital. US ASPCA Animal Poison Control: <a className="font-bold text-red-800 underline" href="tel:8884264435">(888) 426-4435</a> (fees may apply).</p></section>
-<section><h2 className="text-2xl font-extrabold text-slate-900">Explore fruit safety guides</h2><div className="mt-5 grid gap-3 sm:grid-cols-2">{[{n:'Bananas',s:'bananas'},{n:'Apples',s:'apples'},{n:'Blueberries',s:'blueberries'},{n:'Grapes',s:'grapes'},{n:'Watermelon',s:'watermelon'},{n:'Strawberries',s:'strawberries'}].map(x=><Link key={x.s} href={`/fruits/${x.s}`} className="flex justify-between rounded-xl border border-slate-200 bg-white p-4 font-semibold text-emerald-800 hover:border-emerald-400">Can dogs eat {x.n.toLowerCase()}? <ArrowRight className="h-4 w-4"/></Link>)}</div><Link href="/fruits" className="mt-5 inline-block font-bold text-emerald-700 underline">View all fruit guides</Link></section>
-<section className="rounded-2xl bg-white p-6 text-sm text-slate-700"><h2 className="text-xl font-bold text-slate-900">Feeding basics</h2><p className="mt-2">Choose a complete and balanced primary dog food for your pet’s life stage. Treats—including safe fruits, vegetables, and table scraps—should generally account for no more than 10% of daily calories. A veterinarian can help with portions and special diets.</p><p className="mt-3">Further reading: <a href="https://wsava.org/global-guidelines/global-nutrition-guidelines/" className="text-emerald-700 underline">WSAVA nutrition guidelines</a> and <a href="https://www.fda.gov/animal-veterinary/animal-health-literacy/complete-and-balanced-pet-food" className="text-emerald-700 underline">FDA pet food guidance</a>.</p></section>
-</div></main>}
+import { AlertTriangle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { FOOD_GUIDES, type FoodGroup } from '@/lib/food-guides';
+export const metadata:Metadata={
+ title:'Can Dogs Eat This? 22 Everyday Food Safety Guides',
+ description:'Explore dog food safety guides for vegetables, eggs, rice, chicken, peanut butter, chocolate, grapes and more. Practical preparation and when to call a veterinarian.',
+ alternates:{canonical:'https://pawfoodguide.com/foods'},
+};
+const groups:FoodGroup[]=['Vegetables','Everyday foods','Proteins','Foods to avoid'];
+export default function FoodHub(){
+ return <main className="min-h-screen bg-slate-50">
+  <header className="bg-gradient-to-r from-emerald-950 to-slate-900 px-4 py-16 text-white"><div className="mx-auto max-w-6xl">
+  <p className="text-sm font-bold text-emerald-300">Worldwide dog food safety library</p>
+  <h1 className="mt-3 max-w-3xl text-4xl font-extrabold tracking-tight sm:text-5xl">Can dogs eat this food?</h1>
+  <p className="mt-5 max-w-2xl text-lg leading-relaxed text-slate-200">Get a clear answer before sharing a bite. Explore common vegetables, proteins, pantry foods and ingredients that dogs should avoid.</p>
+  <div className="mt-6 flex flex-wrap gap-3"><Link href="/fruits" className="rounded-xl bg-white px-5 py-2.5 font-bold text-emerald-950">Browse fruit safety</Link><Link href="/emergency" className="rounded-xl border border-red-300 px-5 py-2.5 font-bold text-white">Possible poisoning?</Link></div>
+  </div></header>
+  <div className="mx-auto max-w-6xl space-y-12 px-4 py-12 sm:px-6">
+   <section className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6"><div className="flex items-start gap-3"><ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-emerald-800"/><div><h2 className="text-lg font-bold text-emerald-950">Every dog is different</h2><p className="mt-2 text-sm leading-relaxed text-emerald-950">These guides provide general information for dog owners in any country. For health conditions, allergies, prescriptions and precise feeding portions, ask your local veterinarian. Treats should normally contribute 10% or less of daily energy, including all snacks and table scraps.</p></div></div></section>
+   {groups.map(group=><section key={group} id={group.toLowerCase().replace(/\s+/g,'-')}>
+    <h2 className="text-2xl font-extrabold text-slate-900">{group}</h2>
+    <p className="mt-2 text-sm text-slate-600">{group==='Foods to avoid'?'Keep these ingredients out of reach and seek professional advice after suspected ingestion.':'Preparation, portion and ingredient details matter. Read the full guide before feeding.'}</p>
+    <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    {FOOD_GUIDES.filter(food=>food.group===group).map(food=><Link key={food.slug} href={`/foods/${food.slug}`} className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 hover:shadow-md">
+    <div className="flex items-center justify-between gap-2"><h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-800">{food.name}</h3>{food.status==='unsafe'?<span className="rounded-full bg-red-100 px-2 py-1 text-xs font-bold text-red-900">Avoid</span>:food.status==='caution'?<span className="rounded-full bg-amber-100 px-2 py-1 text-xs font-bold text-amber-900">Check first</span>:<span className="rounded-full bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-900">Small amounts</span>}</div>
+    <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{food.answer}</p>
+    <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-emerald-800">Read safety guide <ArrowRight className="h-4 w-4"/></span>
+    </Link>)}</div>
+   </section>)}
+   <section className="rounded-2xl border border-red-200 bg-red-50 p-6"><h2 className="flex items-center gap-2 text-xl font-bold text-red-950"><AlertTriangle className="h-6 w-6"/> Has your dog eaten something dangerous?</h2><p className="mt-2 text-sm leading-relaxed text-red-950">Call your local veterinarian or emergency animal hospital immediately. Do not wait for signs of poisoning and do not induce vomiting unless instructed by a veterinary professional.</p><Link href="/emergency" className="mt-4 inline-block font-bold text-red-800 underline">Emergency guidance for all countries</Link></section>
+  </div>
+ </main>;
+}
