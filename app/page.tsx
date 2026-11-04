@@ -27,11 +27,11 @@ export default function HomePage() {
         <p className="mt-2 max-w-2xl text-slate-600">Start with these common foods and ingredients. When in doubt, ask your veterinarian.</p>
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { name: 'Can dogs eat bananas?', href: '/fruits/bananas', detail: 'How to serve small, peeled pieces' },
-            { name: 'Can dogs eat apples?', href: '/fruits/apples', detail: 'What to do with the core and seeds' },
-            { name: 'Can dogs eat grapes?', href: '/fruits/grapes', detail: 'Important poisoning warning' },
-            { name: 'Can dogs eat blueberries?', href: '/fruits/blueberries', detail: 'Preparation and treat portions' },
-            { name: 'Can dogs eat watermelon?', href: '/fruits/watermelon', detail: 'Remove rind and seeds' },
+            { name: 'Can dogs eat bananas?', href: '/food/can-dogs-eat-bananas', detail: 'How to serve small, peeled pieces' },
+            { name: 'Can dogs eat apples?', href: '/food/can-dogs-eat-apples', detail: 'What to do with the core and seeds' },
+            { name: 'Can dogs eat grapes?', href: '/food/can-dogs-eat-grapes', detail: 'Important poisoning warning' },
+            { name: 'Can dogs eat blueberries?', href: '/food/can-dogs-eat-blueberries', detail: 'Preparation and treat portions' },
+            { name: 'Can dogs eat watermelon?', href: '/food/can-dogs-eat-watermelon', detail: 'Remove rind and seeds' },
             { name: 'What foods should dogs avoid?', href: '/foods', detail: 'Common foods and ingredients to check' },
           ].map(item => (
             <Link key={item.href} href={item.href} className="group rounded-2xl border border-slate-200 bg-white p-5 shadow-sm hover:border-emerald-300">

@@ -1,3 +1,4 @@
+import ArticleDepth from '@/components/ArticleDepth';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -20,12 +21,12 @@ export async function generateMetadata({params}: Props): Promise<Metadata> {
   const fruit = getFruitBySlug(slug);
   const advice = getFruitAdvice(slug);
   if (!fruit || !advice) return {title:'Fruit guide not found'};
-  const title = `Can Dogs Eat ${fruit.name}? Safety, Risks & Preparation`;
+  const title = `Can Dogs Eat ${fruit.name}? What You Need to Know`;
   const description = `${advice.answer} Learn what parts to avoid, preparation tips and when to speak to a veterinarian.`;
   return {
     title, description,
-    alternates:{canonical:`https://pawfoodguide.com/fruits/${slug}`},
-    openGraph:{title,description,type:'article',url:`https://pawfoodguide.com/fruits/${slug}`,images:[{url:fruit.heroImage,alt:fruit.imageAlt}]},
+    alternates:{canonical:`https://pawfoodguide.com/food/can-dogs-eat-${slug}`},
+    openGraph:{title,description,type:'article',url:`https://pawfoodguide.com/food/can-dogs-eat-${slug}`,images:[{url:fruit.heroImage,alt:fruit.imageAlt}]},
   };
 }
 
@@ -38,7 +39,7 @@ export default async function FruitPage({params}:Props) {
   const caution = advice.status === 'caution';
   const related = FRUITS_DATABASE.filter(item=>item.slug!==slug).slice(0,6);
   const title = `Can dogs eat ${fruit.name.toLowerCase()}?`;
-  const url = `https://pawfoodguide.com/fruits/${slug}`;
+  const url = `https://pawfoodguide.com/food/can-dogs-eat-${slug}`;
   const schema = {
     '@context':'https://schema.org','@type':'Article',headline:title,
     description:advice.answer,mainEntityOfPage:url,image:fruit.heroImage,
@@ -66,7 +67,7 @@ export default async function FruitPage({params}:Props) {
             <p className="mt-2 text-lg leading-relaxed text-slate-900">{advice.answer}</p>
           </div>
         </div>
-        <div className="relative h-56 bg-slate-100 sm:h-80"><Image src={fruit.heroImage} alt={fruit.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 900px" className="object-cover"/></div>
+        <div className="relative h-56 bg-slate-100 sm:h-80"><Image src={fruit.heroImage} alt={fruit.imageAlt} fill unoptimized priority sizes="(max-width: 1024px) 100vw, 900px" className="object-cover"/></div>
       </header>
 
       <div className="grid gap-7 lg:grid-cols-3">
@@ -96,6 +97,7 @@ export default async function FruitPage({params}:Props) {
             <p className="mt-2 text-sm text-slate-600">This estimator shows an approximate calorie budget. It does not decide whether an individual food or portion is medically suitable.</p>
             <div className="mt-5"><TreatCalculator initialFruitSlug={slug}/></div>
           </section>}
+          <ArticleDepth name={fruit.name} slug={slug} kind="fruit" status={advice.status} answer={advice.answer} preparation={advice.serve} avoid={advice.risks.join(' ')} emergency={advice.emergency}/>
           <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-slate-900">Sources and how we use them</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-700">These organizations publish general food safety and nutrition resources. Linking them does not mean they reviewed or endorsed this page. Nutritional values and animal tolerance can vary.</p>
@@ -106,7 +108,7 @@ export default async function FruitPage({params}:Props) {
         <aside className="space-y-5">
           <div className="rounded-2xl border border-slate-200 bg-white p-6">
             <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900"><BookOpen className="h-5 w-5 text-emerald-700"/> More fruit questions</h2>
-            <ul className="mt-4 space-y-3">{related.map(item=><li key={item.slug}><Link href={`/fruits/${item.slug}`} className="text-sm font-semibold text-emerald-800 hover:underline">Can dogs eat {item.name.toLowerCase()}?</Link></li>)}</ul>
+            <ul className="mt-4 space-y-3">{related.map(item=><li key={item.slug}><Link href={`/food/can-dogs-eat-${item.slug}`} className="text-sm font-semibold text-emerald-800 hover:underline">Can dogs eat {item.name.toLowerCase()}?</Link></li>)}</ul>
             <Link href="/fruits" className="mt-5 inline-block text-sm font-bold text-emerald-700 underline">See all 16 fruits</Link>
           </div>
           <div className="rounded-2xl border border-slate-200 bg-white p-6"><h2 className="text-lg font-bold text-slate-900">Beyond fruit</h2><p className="mt-2 text-sm text-slate-600">Explore vegetables, rice, eggs, chicken, chocolate, onions, xylitol, and other common ingredients.</p><Link href="/foods" className="mt-3 inline-block font-bold text-emerald-700 underline">Browse all food guides</Link></div>

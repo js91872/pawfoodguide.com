@@ -96,7 +96,7 @@ export default function Header() {
                   </span>
                 </div>
                 <span className="text-[10px] font-medium tracking-wide text-slate-500">
-                  Everyday food safety for dogs
+                  Everyday answers for dog owners
                 </span>
               </div>
             </Link>
