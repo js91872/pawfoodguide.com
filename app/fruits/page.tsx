@@ -9,7 +9,7 @@ import FruitsDirectoryClient from './FruitsDirectoryClient';
 export const metadata: Metadata = {
   title: 'Canine Fruit Safety Database (16-Fruit Clinical Index) | PawFoodGuide',
   description:
-    'Comprehensive directory of canine fruit safety. Verified USDA FoodData Central nutritional breakdowns, toxicity risks, and safe serving sizes for dogs.',
+    'Find out which fruits dogs can eat, which are risky, and how to serve small portions safely.',
   alternates: {
     canonical: 'https://pawfoodguide.com/fruits',
   },
@@ -29,7 +29,7 @@ export default function FruitsDirectoryPage() {
             Canine Fruit Safety & Nutritional Database
           </h1>
           <p className="mt-4 text-sm sm:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
-            Instant answers on what fruits dogs can and cannot eat. Fully cross-referenced with USDA FoodData Central chemical assays and ASPCA poison control protocols.
+            Straightforward answers about fruit safety, pits and seeds, preparation, and portion sizes for dogs.
           </p>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3 text-xs font-semibold text-slate-300">
@@ -40,7 +40,7 @@ export default function FruitsDirectoryPage() {
             <span>•</span>
             <span>Zero AI Filler</span>
             <span>•</span>
-            <span>100% Peer-Reviewed</span>
+            <span>Safety-first guidance</span>
           </div>
         </div>
       </div>
