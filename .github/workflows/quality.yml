@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
+      issues: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -21,7 +22,26 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
       - name: Lint
-        run: npm run lint
+        id: lint
+        shell: bash
+        run: |
+          set -o pipefail
+          npm run lint 2>&1 | tee /tmp/pawfoodguide-lint.txt
+      - name: Report lint errors on pull request
+        if: failure() && steps.lint.outcome == 'failure' && github.event_name == 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          {
+            echo '### Automated lint diagnostics'
+            echo ''
+            echo '~~~text'
+            head -c 12000 /tmp/pawfoodguide-lint.txt
+            echo ''
+            echo '~~~'
+          } > /tmp/pawfoodguide-comment.md
+          gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" -F body=@/tmp/pawfoodguide-comment.md
       - name: Typecheck
         run: npx tsc --noEmit
       - name: Production build
