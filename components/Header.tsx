@@ -22,9 +22,10 @@ export default function Header() {
   const pathname = usePathname();
 
   const navLinks = [
-    { name: 'Database', href: '/fruits', icon: BookOpen },
-    { name: 'Calorie & Treat Calculator', href: '/calculator', icon: Calculator },
-    { name: 'Veterinary Research Standards', href: '/veterinary-standards', icon: ShieldCheck },
+    { name: 'Foods Dogs Can Eat', href: '/foods', icon: BookOpen },
+    { name: 'Fruit Guide', href: '/fruits', icon: BookOpen },
+    { name: 'Treat Calculator', href: '/calculator', icon: Calculator },
+    { name: 'Our Sources', href: '/veterinary-standards', icon: ShieldCheck },
     { name: 'About Us', href: '/about', icon: Info },
     { name: 'Privacy Policy', href: '/privacy-policy', icon: ShieldCheck },
   ];
@@ -40,7 +41,7 @@ export default function Header() {
                 <ShieldAlert className="h-3.5 w-3.5 text-white" />
               </span>
               <span>
-                <strong className="font-bold">🐾 Emergency Helpline:</strong> Ingestion of grapes, raisins, or toxic seeds?
+                <strong className="font-bold">🐾 Emergency Helpline:</strong> Concerned about something your dog ate?
               </span>
             </div>
 
@@ -117,11 +118,11 @@ export default function Header() {
                     PawFood<span className="text-emerald-700">Guide</span>
                   </span>
                   <span className="rounded-md bg-emerald-100/80 px-1.5 py-0.5 text-[10px] font-black uppercase tracking-wider text-emerald-800">
-                    USDA
+                    Guide
                   </span>
                 </div>
                 <span className="text-[10px] font-medium tracking-wide text-slate-500">
-                  Canine Fruit Safety & Treat Science
+                  Everyday food safety for dogs
                 </span>
               </div>
             </Link>
@@ -152,10 +153,10 @@ export default function Header() {
                 type="button"
                 onClick={() => setSearchModalOpen(true)}
                 className="flex items-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-medium text-slate-500 hover:border-emerald-300 hover:bg-white hover:text-slate-900 transition shadow-xs"
-                aria-label="Search fruits database"
+                aria-label="Search dog food guides"
               >
                 <Search className="h-4 w-4 text-emerald-700" />
-                <span className="hidden sm:inline">Search fruit safety...</span>
+                <span className="hidden sm:inline">Search fruits and foods...</span>
                 <kbd className="hidden sm:inline-block rounded bg-slate-200/80 px-1.5 py-0.5 text-[10px] font-mono font-bold text-slate-600">
                   ⌘K
                 </kbd>
