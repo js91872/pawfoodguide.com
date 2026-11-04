@@ -1,3 +1,4 @@
+import ArticleDepth from '@/components/ArticleDepth';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -66,7 +67,7 @@ export default async function FruitPage({params}:Props) {
             <p className="mt-2 text-lg leading-relaxed text-slate-900">{advice.answer}</p>
           </div>
         </div>
-        <div className="relative h-56 bg-slate-100 sm:h-80"><Image src={fruit.heroImage} alt={fruit.imageAlt} fill priority sizes="(max-width: 1024px) 100vw, 900px" className="object-cover"/></div>
+        <div className="relative h-56 bg-slate-100 sm:h-80"><Image src={fruit.heroImage} alt={fruit.imageAlt} fill unoptimized priority sizes="(max-width: 1024px) 100vw, 900px" className="object-cover"/></div>
       </header>
 
       <div className="grid gap-7 lg:grid-cols-3">
@@ -96,6 +97,7 @@ export default async function FruitPage({params}:Props) {
             <p className="mt-2 text-sm text-slate-600">This estimator shows an approximate calorie budget. It does not decide whether an individual food or portion is medically suitable.</p>
             <div className="mt-5"><TreatCalculator initialFruitSlug={slug}/></div>
           </section>}
+          <ArticleDepth name={fruit.name} slug={slug} kind="fruit" status={advice.status} answer={advice.answer} preparation={advice.serve} avoid={advice.risks.join(' ')} emergency={advice.emergency}/>
           <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-slate-900">Sources and how we use them</h2>
             <p className="mt-3 text-sm leading-relaxed text-slate-700">These organizations publish general food safety and nutrition resources. Linking them does not mean they reviewed or endorsed this page. Nutritional values and animal tolerance can vary.</p>
