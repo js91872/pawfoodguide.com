@@ -75,7 +75,7 @@ export default async function FruitPage({params}:Props) {
             <h2 className="text-2xl font-bold text-slate-900">What dog owners should know</h2>
             <p className="mt-3 leading-7 text-slate-700">{advice.why}</p>
             <p className="mt-3 leading-7 text-slate-700">Dogs have different nutritional needs from people. Even foods that are generally suitable should only be extras within a complete, balanced diet. Dogs with pancreatitis, diabetes, food allergies, a prescribed diet, or other medical conditions need individual advice from their veterinarian.</p>
-            <p className="mt-3 text-sm leading-relaxed text-slate-600">A general guideline from the World Small Animal Veterinary Association is that treats, including fruit, should provide no more than 10% of a healthy dog's daily calories. This is a combined limit for all extras, not a recommended serving size for this specific fruit.</p>
+            <p className="mt-3 text-sm leading-relaxed text-slate-600">A general guideline from the World Small Animal Veterinary Association is that treats, including fruit, should provide no more than 10% of a healthy dog&apos;s daily calories. This is a combined limit for all extras, not a recommended serving size for this specific fruit.</p>
           </section>
           <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
             <h2 className="text-2xl font-bold text-slate-900">{unsafe?'How to prevent accidental exposure':'How to prepare it safely'}</h2>
@@ -92,7 +92,7 @@ export default async function FruitPage({params}:Props) {
             <Link href="/emergency" className="mt-4 inline-block font-bold text-red-700 underline">Emergency advice for dog owners worldwide</Link>
           </section>
           {!unsafe && <section className="rounded-2xl border border-slate-200 bg-white p-6 sm:p-8">
-            <h2 className="text-2xl font-bold text-slate-900">Plan your dog's treat calories</h2>
+            <h2 className="text-2xl font-bold text-slate-900">Plan your dog&apos;s treat calories</h2>
             <p className="mt-2 text-sm text-slate-600">This estimator shows an approximate calorie budget. It does not decide whether an individual food or portion is medically suitable.</p>
             <div className="mt-5"><TreatCalculator initialFruitSlug={slug}/></div>
           </section>}
