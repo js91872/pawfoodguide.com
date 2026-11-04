@@ -13,11 +13,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://pawfoodguide.com'),
   title: {
-    default: 'PawFoodGuide — Canine Fruit Safety, USDA Nutrition & Vet-Backed Calculators',
+    default: 'PawFoodGuide — Can Dogs Eat This? Dog Food Safety Guides',
     template: '%s | PawFoodGuide',
   },
   description:
-    'Peer-reviewed canine fruit safety database, verified USDA FoodData Central nutritional profiles, and veterinary RER 10% treat calculators for dogs.',
+    'Find out which common foods dogs can eat, what to avoid, how to prepare safe treats, and how to estimate portions.',
   keywords: [
     'can dogs eat fruit',
     'dog fruit safety guide',
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     'veterinary canine nutrition',
     'dog treat 10 percent rule',
   ],
-  authors: [{ name: 'PawFoodGuide Veterinary Editorial Board' }],
+  authors: [{ name: 'PawFoodGuide' }],
   creator: 'PawFoodGuide',
   publisher: 'PawFoodGuide',
   formatDetection: {
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://pawfoodguide.com',
     siteName: 'PawFoodGuide',
-    title: 'PawFoodGuide — Canine Fruit Safety & USDA Treat Nutrition Database',
+    title: 'PawFoodGuide — Food Safety Answers for Dog Owners',
     description:
-      'Peer-reviewed canine fruit safety database, verified USDA FoodData Central nutritional profiles, and veterinary RER 10% treat calculators.',
+      'Clear dog food safety guides, preparation tips, and a practical treat portion calculator.',
     images: [
       {
         url: 'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?auto=format&fit=crop&w=1200&q=80',
@@ -55,9 +55,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'PawFoodGuide — Canine Fruit Safety & USDA Nutrition',
+    title: 'PawFoodGuide — Can Dogs Eat This?',
     description:
-      'Peer-reviewed canine fruit safety database, verified USDA FoodData Central nutritional profiles, and veterinary RER calculators.',
+      'Everyday dog food safety answers and treat portion guidance.',
     images: ['https://images.unsplash.com/photo-1498557850523-fd3d118b962e?auto=format&fit=crop&w=1200&q=80'],
   },
   robots: {
