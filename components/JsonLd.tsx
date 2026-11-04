@@ -20,21 +20,11 @@ export default function JsonLd({ fruit }: JsonLdProps) {
     headline: `Can Dogs Eat ${fruit.name}? Veterinary Safety, USDA Data & Serving Limits`,
     description: fruit.zeroClickAnswer,
     image: [fruit.heroImage],
-    datePublished: '2024-01-15T08:00:00+00:00',
-    dateModified: `${fruit.lastReviewedDate}T12:00:00+00:00`,
-    author: {
-      '@type': 'Person',
-      name: fruit.reviewerName,
-      jobTitle: fruit.reviewerTitle,
-    },
+    author: { '@type': 'Organization', name: 'PawFoodGuide' },
     publisher: {
       '@type': 'Organization',
       name: 'PawFoodGuide',
       url: domain,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${domain}/paw-logo.png`,
-      },
     },
   };
 
@@ -61,12 +51,6 @@ export default function JsonLd({ fruit }: JsonLdProps) {
       name: fruit.name,
       alternateName: fruit.scientificName,
       description: fruit.zeroClickAnswer,
-    },
-    lastReviewed: fruit.lastReviewedDate,
-    reviewedBy: {
-      '@type': 'Person',
-      name: fruit.reviewerName,
-      jobTitle: fruit.reviewerTitle,
     },
   };
 
