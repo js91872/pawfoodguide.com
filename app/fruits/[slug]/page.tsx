@@ -161,7 +161,7 @@ export default async function FruitArticlePage({ params }: Props) {
               <span> · Always ask your veterinarian for individual medical advice.</span>
             </div>
 
-            {/* FEATURE 1: DIRECT ZERO-CLICK ANSWER BLOCK FOR GOOGLE AI OVERVIEWS */}
+            {/* Clear food safety answer */}
             <div
               className={`rounded-2xl p-6 border-2 shadow-sm ${
                 isToxic
