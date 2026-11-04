@@ -2,40 +2,26 @@ name: Website quality checks
 on:
   pull_request:
   push:
-    branches:
-      - main
-      - feat/consumer-first-dog-food-guides
+    branches: [main]
 
 jobs:
   validate:
     runs-on: ubuntu-latest
     permissions:
-      contents: write
+      contents: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.event_name == 'push' && github.ref_name || '' }}
       - name: Node.js 22
         uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install dependencies
-        run: npm install --no-audit --no-fund
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --no-audit --no-fund
       - name: Lint
         run: npm run lint
       - name: Typecheck
         run: npx tsc --noEmit
       - name: Production build
         run: npm run build
-      - name: Synchronize lockfile on development branch
-        if: github.event_name == 'push' && github.ref == 'refs/heads/feat/consumer-first-dog-food-guides'
-        shell: bash
-        run: |
-          git add package-lock.json
-          if ! git diff --cached --quiet; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git commit -m "chore: synchronize dependency lockfile"
-            git push origin HEAD:feat/consumer-first-dog-food-guides
-          fi
