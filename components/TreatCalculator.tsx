@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { FRUITS_DATABASE } from '@/lib/fruits-data';
 import { getFruitAdvice } from '@/lib/fruit-advice';
 
+const SAFE_FRUITS=FRUITS_DATABASE.filter(f=>getFruitAdvice(f.slug)?.status==='safe');
 const DOG_FACTORS=[
  {key:'adult',name:'Typical neutered adult (estimate)',factor:1.6},
  {key:'intact',name:'Typical intact adult (estimate)',factor:1.8},
@@ -13,8 +14,7 @@ export default function TreatCalculator({initialFruitSlug='blueberries'}:{initia
  const [unit,setUnit]=useState<'kg'|'lb'>('kg');
  const [weight,setWeight]=useState('10');
  const [activity,setActivity]=useState('adult');
- const safeFruits=FRUITS_DATABASE.filter(f=>getFruitAdvice(f.slug)?.status==='safe');
- const [fruitSlug,setFruitSlug]=useState(()=>safeFruits.some(f=>f.slug===initialFruitSlug)?initialFruitSlug:'blueberries');
+ const [fruitSlug,setFruitSlug]=useState(()=>SAFE_FRUITS.some(f=>f.slug===initialFruitSlug)?initialFruitSlug:'blueberries');
  const [grams,setGrams]=useState('15');
  const result=useMemo(()=>{
   const w=Number(weight),g=Number(grams),factor=DOG_FACTORS.find(x=>x.key===activity)?.factor??1.6;
@@ -24,17 +24,17 @@ export default function TreatCalculator({initialFruitSlug='blueberries'}:{initia
   const rer=70*Math.pow(kg,0.75);
   const daily=rer*factor;
   const budget=daily*0.1;
-  const selected=safeFruits.find(f=>f.slug===fruitSlug)??safeFruits[0];
+  const selected=SAFE_FRUITS.find(f=>f.slug===fruitSlug)??SAFE_FRUITS[0];
   const portion=(selected?.caloriesPer100g??0)*g/100;
   return {daily:Math.round(daily),budget:Math.round(budget),portion:Math.round(portion*10)/10,remaining:Math.max(0,Math.round((budget-portion)*10)/10),exceeds:portion>budget,name:selected?.name??'fruit',kg};
- },[weight,unit,activity,fruitSlug,grams,safeFruits]);
+ },[weight,unit,activity,fruitSlug,grams]);
  return <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
   <h3 className="text-xl font-bold text-slate-900">Dog treat calorie estimator</h3>
   <p className="mt-2 text-sm leading-relaxed text-slate-600">Estimate calories available for <strong>all treats combined</strong>, then check how many calories are in your planned fruit portion. This is not a recommended portion or an individual feeding plan.</p>
   <div className="mt-5 grid gap-4 sm:grid-cols-2">
-   <div><label htmlFor="dog-weight" className="block text-sm font-semibold text-slate-800">Dog's weight</label><div className="mt-2 flex gap-2"><input id="dog-weight" inputMode="decimal" type="number" min="0.5" max={unit==='kg'?150:330} step="0.1" value={weight} onChange={e=>setWeight(e.target.value)} className="min-w-0 flex-1 rounded-lg border border-slate-300 p-2.5 text-slate-900"/><select aria-label="Weight unit" value={unit} onChange={e=>{const next=e.target.value as 'kg'|'lb';const w=Number(weight);setWeight(Number.isFinite(w)&&w>0?String(Math.round((next==='lb'?w*2.2046226218:w/2.2046226218)*10)/10):weight);setUnit(next);}} className="rounded-lg border border-slate-300 p-2 text-slate-900"><option value="kg">kg</option><option value="lb">lb</option></select></div></div>
+   <div><label htmlFor="dog-weight" className="block text-sm font-semibold text-slate-800">Dog&apos;s weight</label><div className="mt-2 flex gap-2"><input id="dog-weight" inputMode="decimal" type="number" min="0.5" max={unit==='kg'?150:330} step="0.1" value={weight} onChange={e=>setWeight(e.target.value)} className="min-w-0 flex-1 rounded-lg border border-slate-300 p-2.5 text-slate-900"/><select aria-label="Weight unit" value={unit} onChange={e=>{const next=e.target.value as 'kg'|'lb';const w=Number(weight);setWeight(Number.isFinite(w)&&w>0?String(Math.round((next==='lb'?w*2.2046226218:w/2.2046226218)*10)/10):weight);setUnit(next);}} className="rounded-lg border border-slate-300 p-2 text-slate-900"><option value="kg">kg</option><option value="lb">lb</option></select></div></div>
    <div><label htmlFor="activity" className="block text-sm font-semibold text-slate-800">Adult dog activity</label><select id="activity" value={activity} onChange={e=>setActivity(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 p-2.5 text-slate-900">{DOG_FACTORS.map(x=><option key={x.key} value={x.key}>{x.name}</option>)}</select></div>
-   <div><label htmlFor="fruit" className="block text-sm font-semibold text-slate-800">Fruit (plain, prepared flesh)</label><select id="fruit" value={fruitSlug} onChange={e=>setFruitSlug(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 p-2.5 text-slate-900">{safeFruits.map(f=><option key={f.slug} value={f.slug}>{f.name}</option>)}</select></div>
+   <div><label htmlFor="fruit" className="block text-sm font-semibold text-slate-800">Fruit (plain, prepared flesh)</label><select id="fruit" value={fruitSlug} onChange={e=>setFruitSlug(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 p-2.5 text-slate-900">{SAFE_FRUITS.map(f=><option key={f.slug} value={f.slug}>{f.name}</option>)}</select></div>
    <div><label htmlFor="fruit-grams" className="block text-sm font-semibold text-slate-800">Planned fruit amount (grams)</label><input id="fruit-grams" type="number" inputMode="decimal" min="0" max="2000" value={grams} onChange={e=>setGrams(e.target.value)} className="mt-2 w-full rounded-lg border border-slate-300 p-2.5 text-slate-900"/></div>
   </div>
   {result?<div aria-live="polite" className="mt-5 grid gap-3 sm:grid-cols-3">
