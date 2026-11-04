@@ -13,21 +13,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh sliced ripe bananas on a clean prep board for canine treats',
     imageCredit: 'Unsplash / Eiliv Aceron',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat bananas',
-      monthlySearchVolumeUS: 246000,
-      monthlySearchVolumeUK: 49500,
-      globalSearchVolume: 420000,
-      seoDifficulty: 38,
-      cpcUSD: 1.85,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat banana peel', volume: 27100, cpc: 1.45 },
-        { keyword: 'how much banana can a dog eat', volume: 18100, cpc: 1.95 },
-        { keyword: 'can puppies eat bananas', volume: 14800, cpc: 2.1 },
-        { keyword: 'dog ate banana skin diarrhea', volume: 6600, cpc: 1.3 },
-      ],
-    },
     usda: {
       fdcId: 173944,
       foodName: 'Bananas, raw',
@@ -115,26 +100,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Commercial banana chips are heavily discouraged. Most store-bought brands are fried in palm or coconut oil and coated in added cane sugar or honey, dramatically elevating fat and calorie density. This creates a high risk of canine pancreatitis.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of the American Veterinary Medical Association (JAVMA)',
-        title: 'Evaluation of dietary potassium intake in canine cardiovascular health',
-        year: 2021,
-      },
-      {
-        source: 'Merck Veterinary Manual',
-        title: 'Nutritional Requirements and Related Diseases of Small Animals',
-        year: 2023,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Bananas, raw, Foundation Foods (FDC ID: 173944)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-15',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'strawberries',
@@ -148,20 +113,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh organic ripe strawberries cut into safe canine portions',
     imageCredit: 'Unsplash / Massimiliano Donghi',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat strawberries',
-      monthlySearchVolumeUS: 201000,
-      monthlySearchVolumeUK: 40500,
-      globalSearchVolume: 350000,
-      seoDifficulty: 35,
-      cpcUSD: 1.62,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'are strawberries good for dogs', volume: 22200, cpc: 1.7 },
-        { keyword: 'can dogs eat strawberry tops', volume: 8100, cpc: 1.25 },
-        { keyword: 'how many strawberries can a dog eat', volume: 9900, cpc: 1.8 },
-      ],
-    },
     usda: {
       fdcId: 167762,
       foodName: 'Strawberries, raw',
@@ -245,21 +196,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'True canine strawberry allergies are rare but documented. Signs include pruritus (itchiness), facial scratching, hives, red skin paws, or acute diarrhea. If introducing strawberries for the first time, feed a single quarter-piece and observe your dog for 24 hours.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'American Journal of Veterinary Research',
-        title: 'Antioxidant capacity of dietary berry polyphenols in healthy adult canines',
-        year: 2022,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Strawberries, raw (FDC ID: 167762)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-18',
-    reviewerName: 'Dr. Marcus Vance, BVSc, MRCVS',
-    reviewerTitle: 'Veterinary Surgeon & Animal Nutrition Researcher',
   },
   {
     id: 'apples',
@@ -273,21 +209,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Crisp red apple slices prepared without seeds or core for dogs',
     imageCredit: 'Unsplash / Tuqa Nabi',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat apples',
-      monthlySearchVolumeUS: 301000,
-      monthlySearchVolumeUK: 60500,
-      globalSearchVolume: 510000,
-      seoDifficulty: 41,
-      cpcUSD: 1.95,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat apple seeds', volume: 49500, cpc: 2.3 },
-        { keyword: 'can dogs eat apple skin', volume: 18100, cpc: 1.5 },
-        { keyword: 'can dogs eat apple core', volume: 22200, cpc: 2.15 },
-        { keyword: 'can puppies eat apples', volume: 14800, cpc: 1.85 },
-      ],
-    },
     usda: {
       fdcId: 171688,
       foodName: 'Apples, with skin, raw',
@@ -371,21 +292,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Plain, unsweetened, 100% natural applesauce with zero added sugar and zero artificial sweeteners (like xylitol/birch bark extract) is safe in small spoonfuls. Never feed commercial cinnamon applesauce or sweetened dessert blends.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Veterinary Clinics of North America: Small Animal Practice',
-        title: 'Cyanide toxicology in companion animals: Plant sources and clinical management',
-        year: 2020,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Apples, with skin, raw (FDC ID: 171688)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-20',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'blueberries',
@@ -399,21 +305,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1498557850523-fd3d118b962e?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh plump blueberries in a wooden bowl for healthy dog treats',
     imageCredit: 'Unsplash / Joanna Kosinska',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat blueberries',
-      monthlySearchVolumeUS: 246000,
-      monthlySearchVolumeUK: 49500,
-      globalSearchVolume: 410000,
-      seoDifficulty: 32,
-      cpcUSD: 1.75,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'are blueberries good for dogs', volume: 33100, cpc: 1.9 },
-        { keyword: 'can dogs eat frozen blueberries', volume: 18100, cpc: 1.6 },
-        { keyword: 'how many blueberries can a dog eat', volume: 14800, cpc: 1.8 },
-        { keyword: 'can puppies eat blueberries', volume: 12100, cpc: 2.05 },
-      ],
-    },
     usda: {
       fdcId: 171711,
       foodName: 'Blueberries, raw',
@@ -497,26 +388,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Yes, in strict moderation. Blueberries have a relatively low glycemic index and high fiber content compared to tropical fruits. Always consult your veterinarian to establish exact treat counts based on your dog’s current blood glucose curve.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Comparative Biochemistry and Physiology Part A: Molecular & Integrative Physiology',
-        title: 'Antioxidant capacity of blueberries in exercising sled dogs',
-        year: 2006,
-      },
-      {
-        source: 'Topics in Companion Animal Medicine',
-        title: 'Dietary interventions in canine cognitive dysfunction syndrome',
-        year: 2019,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Blueberries, raw (FDC ID: 171711)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-22',
-    reviewerName: 'Dr. Marcus Vance, BVSc, MRCVS',
-    reviewerTitle: 'Veterinary Surgeon & Animal Nutrition Researcher',
   },
   {
     id: 'pineapple',
@@ -530,20 +401,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1550258987-190a2d41a8ba?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Freshly diced golden pineapple chunks safe for canine consumption',
     imageCredit: 'Unsplash / Phoenix Han',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat pineapple',
-      monthlySearchVolumeUS: 165000,
-      monthlySearchVolumeUK: 33100,
-      globalSearchVolume: 280000,
-      seoDifficulty: 36,
-      cpcUSD: 1.55,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat canned pineapple', volume: 27100, cpc: 1.4 },
-        { keyword: 'does pineapple stop dogs from eating poop', volume: 18100, cpc: 2.2 },
-        { keyword: 'can puppies eat pineapple', volume: 9900, cpc: 1.65 },
-      ],
-    },
     usda: {
       fdcId: 169124,
       foodName: 'Pineapple, raw, all varieties',
@@ -627,21 +484,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'The center core of a pineapple is dense, tough, and fibrous. A toy or medium dog cannot break this down with digestive juices. If a dog swallows an intact chunk of core, monitor closely for persistent vomiting, loss of appetite, and lethargy. If observed, immediate abdominal ultrasound or x-rays are warranted.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Biomedical Reports',
-        title: 'Properties and therapeutic application of bromelain: A review of veterinary applications',
-        year: 2016,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Pineapple, raw, all varieties (FDC ID: 169124)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-25',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'mango',
@@ -655,21 +497,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Succulent fresh mango slices peeled and prepared pit-free for dogs',
     imageCredit: 'Unsplash / Brenda Godinez',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat mango',
-      monthlySearchVolumeUS: 201000,
-      monthlySearchVolumeUK: 40500,
-      globalSearchVolume: 340000,
-      seoDifficulty: 37,
-      cpcUSD: 1.68,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat mango skin', volume: 22200, cpc: 1.45 },
-        { keyword: 'can dogs eat mango pit', volume: 18100, cpc: 2.3 },
-        { keyword: 'can puppies eat mango', volume: 12100, cpc: 1.7 },
-        { keyword: 'dog ate mango seed what to do', volume: 8100, cpc: 2.85 },
-      ],
-    },
     usda: {
       fdcId: 169910,
       foodName: 'Mangos, raw',
@@ -753,21 +580,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'No. Mango skin contains urushiol, the compound found in poison ivy, which can trigger severe allergic dermatitis around the canine mouth and lips. The skin is also fibrous and unchewable.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of Small Animal Practice',
-        title: 'Foreign body gastrointestinal obstructions in dogs: A 10-year retrospective study of fruit pits',
-        year: 2018,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Mangos, raw (FDC ID: 169910)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-24',
-    reviewerName: 'Dr. Marcus Vance, BVSc, MRCVS',
-    reviewerTitle: 'Veterinary Surgeon & Animal Nutrition Researcher',
   },
   {
     id: 'grapes',
@@ -781,21 +593,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1537640538966-79f369143f8f?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh grapes which are deadly toxic to canines and cause acute kidney failure',
     imageCredit: 'Unsplash / Gunther Siemens',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat grapes',
-      monthlySearchVolumeUS: 368000,
-      monthlySearchVolumeUK: 74000,
-      globalSearchVolume: 620000,
-      seoDifficulty: 48,
-      cpcUSD: 2.85,
-      searchIntent: 'Emergency',
-      highIntentVariants: [
-        { keyword: 'why are grapes bad for dogs', volume: 60500, cpc: 2.4 },
-        { keyword: 'my dog ate a grape what do i do', volume: 40500, cpc: 3.5 },
-        { keyword: 'how many grapes can kill a dog', volume: 33100, cpc: 3.1 },
-        { keyword: 'grape toxicity in dogs timeline', volume: 18100, cpc: 2.9 },
-      ],
-    },
     usda: {
       fdcId: 174682,
       foodName: 'Grapes, red or green, raw',
@@ -873,26 +670,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Veterinarians perform immediate medical decontamination with apomorphine (to safely induce emesis) followed by activated charcoal with a cathartic to bind toxins. The dog is then placed on IV fluid therapy for 48 hours to protect renal perfusion, alongside baseline and serial BUN/Creatinine blood testing.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of the American Veterinary Medical Association (JAVMA)',
-        title: 'Tartaric acid and potassium bitartrate as the causative agents in grape and raisin toxicosis in dogs',
-        year: 2021,
-      },
-      {
-        source: 'ASPCA Animal Poison Control Center (APCC)',
-        title: 'Clinical findings and management of grape and raisin toxicosis in canines',
-        year: 2023,
-      },
-      {
-        source: 'Veterinary Clinics of North America: Small Animal Practice',
-        title: 'Acute Kidney Injury in Companion Animals: Diagnostic and Therapeutic Strategies',
-        year: 2022,
-      },
-    ],
-    lastReviewedDate: '2026-10-30',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'avocado',
@@ -906,20 +683,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh avocado showing green flesh and dangerous large pit',
     imageCredit: 'Unsplash / Thought Catalog',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat avocado',
-      monthlySearchVolumeUS: 201000,
-      monthlySearchVolumeUK: 33100,
-      globalSearchVolume: 310000,
-      seoDifficulty: 39,
-      cpcUSD: 1.85,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'is avocado poisonous to dogs', volume: 27100, cpc: 2.1 },
-        { keyword: 'can dogs eat avocado oil', volume: 14800, cpc: 1.6 },
-        { keyword: 'what happens if a dog eats avocado pit', volume: 12100, cpc: 2.75 },
-      ],
-    },
     usda: {
       fdcId: 171705,
       foodName: 'Avocados, raw, all commercial varieties',
@@ -993,26 +756,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'An avocado pit is large, spherical, and slippery. Dogs cannot chew or digest it. It frequently passes past the esophagus into the stomach, where it cannot pass through the pylorus, or wedges in the small intestine. This is a medical emergency requiring surgical removal.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of Animal Science',
-        title: 'Evaluation of avocado meal and pulp in canine nutrition and safety testing',
-        year: 2020,
-      },
-      {
-        source: 'Veterinary and Human Toxicology',
-        title: 'Persin toxicosis and foreign body hazards in household pets',
-        year: 2017,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Avocados, raw, all commercial varieties (FDC ID: 171705)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-21',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'watermelon',
@@ -1026,21 +769,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Crisp slices of seedless red watermelon for refreshing dog treats',
     imageCredit: 'Unsplash / Massimiliano Donghi',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat watermelon',
-      monthlySearchVolumeUS: 301000,
-      monthlySearchVolumeUK: 49500,
-      globalSearchVolume: 490000,
-      seoDifficulty: 38,
-      cpcUSD: 1.65,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat watermelon rind', volume: 33100, cpc: 1.4 },
-        { keyword: 'can dogs eat watermelon seeds', volume: 22200, cpc: 1.55 },
-        { keyword: 'how much watermelon can a dog eat', volume: 14800, cpc: 1.7 },
-        { keyword: 'can diabetic dogs eat watermelon', volume: 6600, cpc: 1.9 },
-      ],
-    },
     usda: {
       fdcId: 167765,
       foodName: 'Watermelon, raw',
@@ -1124,21 +852,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Watermelon has a moderately high glycemic index, although its glycemic load per serving is relatively low due to high water content. In diabetic dogs, it should only be fed in very tiny, measured portions after consulting your vet.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of Nutritional Science',
-        title: 'Dietary lycopene bioavailability and safety in domestic dogs',
-        year: 2019,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Watermelon, raw (FDC ID: 167765)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-27',
-    reviewerName: 'Dr. Marcus Vance, BVSc, MRCVS',
-    reviewerTitle: 'Veterinary Surgeon & Animal Nutrition Researcher',
   },
   {
     id: 'oranges',
@@ -1152,20 +865,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1547514701-42782101795e?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Peeled fresh juicy orange slices for dogs',
     imageCredit: 'Unsplash / Mae Mu',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat oranges',
-      monthlySearchVolumeUS: 165000,
-      monthlySearchVolumeUK: 33100,
-      globalSearchVolume: 270000,
-      seoDifficulty: 34,
-      cpcUSD: 1.48,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat orange peel', volume: 22200, cpc: 1.35 },
-        { keyword: 'can puppies eat oranges', volume: 9900, cpc: 1.6 },
-        { keyword: 'can dogs drink orange juice', volume: 14800, cpc: 1.7 },
-      ],
-    },
     usda: {
       fdcId: 169097,
       foodName: 'Oranges, raw, all commercial varieties',
@@ -1244,21 +943,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'It is strongly discouraged. Oranges contain 9.35g of sugar per 100g, and their fast-absorbing liquid carbohydrates can create unwelcome fluctuations in canine blood sugar levels.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Clinical Techniques in Small Animal Practice',
-        title: 'Citrus toxicosis and essential oil poisoning in domestic carnivores',
-        year: 2018,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Oranges, raw, all commercial varieties (FDC ID: 169097)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-23',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'pears',
@@ -1272,20 +956,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh sliced green pears cored and prepared for canine snacks',
     imageCredit: 'Unsplash / Tijana Drndarski',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat pears',
-      monthlySearchVolumeUS: 90500,
-      monthlySearchVolumeUK: 22200,
-      globalSearchVolume: 140000,
-      seoDifficulty: 31,
-      cpcUSD: 1.42,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat pear core', volume: 9900, cpc: 1.6 },
-        { keyword: 'can dogs eat pear skin', volume: 6600, cpc: 1.25 },
-        { keyword: 'can dogs eat canned pears', volume: 8100, cpc: 1.35 },
-      ],
-    },
     usda: {
       fdcId: 169118,
       foodName: 'Pears, raw',
@@ -1369,21 +1039,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'You should avoid standard canned pears because they are typically soaked in sugary corn syrup or sweetened fruit concentrates that can trigger diarrhea and weight gain. Only 100% water-packed, unsweetened pears are acceptable in an emergency.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Veterinary Toxicology: Basic and Clinical Principles',
-        title: 'Cyanogenic Glycosides in Rosaceae Fruits and Companion Animal Safety',
-        year: 2021,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Pears, raw (FDC ID: 169118)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-19',
-    reviewerName: 'Dr. Marcus Vance, BVSc, MRCVS',
-    reviewerTitle: 'Veterinary Surgeon & Animal Nutrition Researcher',
   },
   {
     id: 'peaches',
@@ -1397,20 +1052,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1595758799924-d9bc70c79133?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh sliced ripe peaches without pits for dog snacks',
     imageCredit: 'Unsplash / Rodion Kutsaiev',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat peaches',
-      monthlySearchVolumeUS: 165000,
-      monthlySearchVolumeUK: 27100,
-      globalSearchVolume: 240000,
-      seoDifficulty: 35,
-      cpcUSD: 1.52,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat peach skin', volume: 14800, cpc: 1.3 },
-        { keyword: 'what happens if a dog eats a peach pit', volume: 18100, cpc: 2.45 },
-        { keyword: 'can dogs eat canned peaches', volume: 12100, cpc: 1.4 },
-      ],
-    },
     usda: {
       fdcId: 169927,
       foodName: 'Peaches, raw',
@@ -1489,21 +1130,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'No. Canned peaches are preserved in heavy corn syrup containing excessive sugar that can spike blood glucose and cause diarrhea. Additionally, diet canned peaches may contain artificial sweeteners like xylitol, which is lethal to dogs.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of the American Animal Hospital Association',
-        title: 'Endoscopic and surgical removal of fruit stone foreign bodies in 74 dogs',
-        year: 2021,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Peaches, raw (FDC ID: 169927)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-26',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'raspberries',
@@ -1517,20 +1143,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1577069808021-0a60429d2919?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh red raspberries in a wooden bowl for canine treats',
     imageCredit: 'Unsplash / Heather Barnes',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat raspberries',
-      monthlySearchVolumeUS: 165000,
-      monthlySearchVolumeUK: 33100,
-      globalSearchVolume: 260000,
-      seoDifficulty: 33,
-      cpcUSD: 1.6,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'do raspberries have xylitol for dogs', volume: 18100, cpc: 2.15 },
-        { keyword: 'how many raspberries can a dog eat', volume: 14800, cpc: 1.75 },
-        { keyword: 'are raspberries safe for dogs', volume: 22200, cpc: 1.5 },
-      ],
-    },
     usda: {
       fdcId: 167755,
       foodName: 'Raspberries, raw',
@@ -1609,21 +1221,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Yes, but limit portions to 1 single raspberry due to their small body mass and developing digestive system.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of Veterinary Emergency and Critical Care',
-        title: 'Naturally occurring sugar alcohols in fruits and canine toxicology considerations',
-        year: 2019,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Raspberries, raw (FDC ID: 167755)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-28',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
   {
     id: 'cherries',
@@ -1637,21 +1234,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1528821128474-27f963b062bf?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh red cherries with stems and pits which pose cyanide hazards for dogs',
     imageCredit: 'Unsplash / Chuttersnap',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat cherries',
-      monthlySearchVolumeUS: 246000,
-      monthlySearchVolumeUK: 49500,
-      globalSearchVolume: 390000,
-      seoDifficulty: 42,
-      cpcUSD: 2.1,
-      searchIntent: 'Emergency',
-      highIntentVariants: [
-        { keyword: 'what happens if a dog eats a cherry', volume: 27100, cpc: 2.6 },
-        { keyword: 'can dogs eat cherries without pits', volume: 18100, cpc: 1.95 },
-        { keyword: 'are cherries poisonous to dogs', volume: 22200, cpc: 2.3 },
-        { keyword: 'dog ate cherry pit symptoms', volume: 12100, cpc: 2.8 },
-      ],
-    },
     usda: {
       fdcId: 171719,
       foodName: 'Cherries, sweet, raw',
@@ -1725,26 +1307,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'No. While maraschino cherries are pitted, they are bleached with sulfur dioxide, dyed with artificial food colorings, and soaked in high-fructose corn syrup. They offer zero nutrition and can trigger severe canine gastrointestinal upset.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Merck Veterinary Manual',
-        title: 'Cyanide Poisoning from Prunus Species in Domestic Animals',
-        year: 2022,
-      },
-      {
-        source: 'ASPCA Animal Poison Control Center',
-        title: 'Cherry Toxicosis and Emergency Medical Protocol',
-        year: 2023,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Cherries, sweet, raw (FDC ID: 171719)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-29',
-    reviewerName: 'Dr. Marcus Vance, BVSc, MRCVS',
-    reviewerTitle: 'Veterinary Surgeon & Animal Nutrition Researcher',
   },
   {
     id: 'kiwi',
@@ -1758,20 +1320,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1585059895524-72359e06133a?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh sliced green kiwi fruit peeled for safe canine consumption',
     imageCredit: 'Unsplash / Lola Rossi',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat kiwi',
-      monthlySearchVolumeUS: 135000,
-      monthlySearchVolumeUK: 27100,
-      globalSearchVolume: 210000,
-      seoDifficulty: 32,
-      cpcUSD: 1.45,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat kiwi skin', volume: 14800, cpc: 1.3 },
-        { keyword: 'can dogs eat kiwi seeds', volume: 8100, cpc: 1.2 },
-        { keyword: 'can puppies eat kiwi', volume: 6600, cpc: 1.55 },
-      ],
-    },
     usda: {
       fdcId: 169918,
       foodName: 'Kiwifruit, green, raw',
@@ -1855,21 +1403,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Puppies can eat a tiny bite of peeled kiwi flesh, but proceed with caution. The high concentration of vitamin C and actinidain enzymes can cause loose stools in very young, sensitive digestive tracts.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Advances in Food and Nutrition Research',
-        title: 'Nutritional and health benefits of kiwifruit and its proteolytic enzymes',
-        year: 2018,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Kiwifruit, green, raw (FDC ID: 169918)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-21',
-    reviewerName: 'Dr. Marcus Vance, BVSc, MRCVS',
-    reviewerTitle: 'Veterinary Surgeon & Animal Nutrition Researcher',
   },
   {
     id: 'papaya',
@@ -1883,20 +1416,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
     heroImage: 'https://images.unsplash.com/photo-1517282009859-f000ec3b26fe?auto=format&fit=crop&w=1200&q=80',
     imageAlt: 'Fresh tropical papaya sliced with seeds scooped out for canine treats',
     imageCredit: 'Unsplash / Jo Sonn',
-    marketMetrics: {
-      primaryKeyword: 'can dogs eat papaya',
-      monthlySearchVolumeUS: 90500,
-      monthlySearchVolumeUK: 18100,
-      globalSearchVolume: 150000,
-      seoDifficulty: 30,
-      cpcUSD: 1.4,
-      searchIntent: 'Informational',
-      highIntentVariants: [
-        { keyword: 'can dogs eat papaya seeds', volume: 9900, cpc: 1.35 },
-        { keyword: 'can dogs eat dried papaya', volume: 6600, cpc: 1.25 },
-        { keyword: 'is papaya good for dogs stomach', volume: 8100, cpc: 1.65 },
-      ],
-    },
     usda: {
       fdcId: 171726,
       foodName: 'Papayas, raw',
@@ -1980,21 +1499,6 @@ export const FRUITS_DATABASE: FruitArticle[] = [
         answer: 'Avoid commercial candied or dehydrated papaya. Candied papaya is heavily coated in refined table sugar, and dehydrated papaya concentrates natural sugars into sticky morsels that spike blood sugar and stick to canine dental enamel.',
       },
     ],
-    veterinaryCitations: [
-      {
-        source: 'Journal of Medicinal Food',
-        title: 'Proteolytic enzymes of Carica papaya in veterinary digestive therapeutics',
-        year: 2017,
-      },
-      {
-        source: 'USDA FoodData Central',
-        title: 'Papayas, raw (FDC ID: 171726)',
-        year: 2024,
-      },
-    ],
-    lastReviewedDate: '2026-10-24',
-    reviewerName: 'Dr. Katherine Reynolds, DVM, DACVIM',
-    reviewerTitle: 'Board-Certified Veterinary Clinical Nutritionist',
   },
 ];
 
