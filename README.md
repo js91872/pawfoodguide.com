@@ -1,50 +1,58 @@
 # PawFoodGuide
 
-PawFoodGuide is a reader-focused resource for people asking whether common foods are safe for dogs. The site combines plain-language safety guides, preparation tips, nutrition reference information, and a treat portion calculator.
+**Food safety answers for dog owners around the world.** PawFoodGuide is an English-language, consumer-oriented resource about everyday foods dogs can and cannot eat, practical preparation, common hazards and occasional treats.
 
-## Reader experience
+## Published routes
 
-- `/` — Food-safety homepage and popular questions
-- `/foods` — Everyday food safety and foods to avoid
-- `/fruits` — 16 fruit guide directory
-- `/fruits/[slug]` — Individual fruit guides
-- `/calculator` — Estimated calorie and treat allowance
-- `/about`, `/veterinary-standards`, `/privacy-policy` — Transparency and policies
+- `/` — homepage, frequently asked food questions and guides
+- `/foods` — 22 common food guides by category
+- `/foods/[slug]` — individual food articles
+- `/fruits` — directory of 16 fruit guides
+- `/fruits/[slug]` — individual fruit articles
+- `/calculator` — estimated adult dog calorie and treat allowance, metric-first with pounds option
+- `/emergency` — worldwide emergency orientation with clearly labeled regional references
+- `/veterinary-standards` — sources and editorial approach
+- `/about`, `/disclaimer`, `/privacy-policy`, `/terms`
 
-## Stack
+## Code and running locally
 
-Next.js 16 (App Router), React 19, TypeScript and Tailwind CSS 4.
-
-## Local development
+Next.js 16.4.4, React 19, Tailwind CSS 4, TypeScript and the standard Tailwind PostCSS integration.
 
 ```bash
-npm install
-npm run dev
+npm ci
+npm run lint
+npx tsc --noEmit
+npm run build
+npm run dev -- -p 3006
 ```
 
-Open http://localhost:3000. Before merging, run `npm run lint` and `npm run build`.
+Open http://localhost:3006.
 
-## Editorial and safety standards
+GitHub Actions performs a reproducible `npm ci`, ESLint, TypeScript and production build check on pull requests and `main`.
 
-**This is an educational website, not veterinary advice.** References to USDA, ASPCA, WSAVA, Cornell or FDA are source links, not endorsements or a claim of clinical review. No page should display a named veterinarian or a reviewed-by date without that professional's documented, authorized review.
+## Editorial policy
 
-A nutrition database entry for a human food is not proof that a food is safe for dogs. Treats should not replace complete and balanced food. If a potentially toxic ingredient has been ingested, contact a veterinarian immediately.
+PawFoodGuide is an independent educational site, **not a veterinary hospital, professional review board or emergency service**. Do not add fictional reviewers, unverified dates, claimed endorsements, invented qualifications or false government approvals.
 
-## Before production
+Safety guidance should be grounded in resources from reputable bodies such as WSAVA, ASPCA, FDA, PDSA and RSPCA. Linking to an agency does not mean it approved PawFoodGuide or reviewed a specific article. Food questions often require nuance: safe flesh may coexist with unsafe pits, seeds or added ingredients. Especially risky food consumption must direct readers to local veterinary help immediately.
 
-- Verify the source, accuracy and preparation safety of each of the 16 original fruit entries, particularly cherry pits, grape/raisin toxicity, avocado, raspberry, and portion recommendations.
-- Have the planned licensed BVSc/AH veterinarian independently review safety-sensitive pages. Publish the name, credentials, scope and date only with written permission.
-- Check reference links, food photos and attribution.
-- Check actual cookies, analytics, logs and third-party services against the privacy policy.
-- Verify mobile layout, accessibility, forms/search and metadata, sitemap, and all navigation links.
-- If using ads or affiliate links later, implement applicable disclosures and consent controls. Do not claim AdSense approval before it happens.
-- Keep keyword volumes, CPC, search traffic and monetization research in private files/workflows, **not visitor-facing pages or client-shipped content**.
+The 10% rule is an overall guideline for *all treats combined*, not a safe gram-based portion of any specific food. Calculator output is an approximation for generally healthy adult dogs, not an individual veterinary diet plan.
 
-## Useful source references
+## International scope
 
-- https://wsava.org/global-guidelines/global-nutrition-guidelines/
-- https://www.aspca.org/pet-care/aspca-poison-control
-- https://www.fda.gov/animal-veterinary/animal-health-literacy/complete-and-balanced-pet-food
-- https://fdc.nal.usda.gov/
+Do not assume visitors are in the USA. Use clear international English, metric as the default with imperial available, regional product names where useful, and local-vet-first poisoning advice. US, UK and Australian resources may be linked when clearly labeled. Do not invent local emergency telephone numbers or imply a US service covers other jurisdictions.
 
-Content and software are maintained independently by the site operator.
+## SEO and monetization
+
+Write for the person asking the question, not for an SEO dashboard. Keep public pages free of monthly search volumes, advertiser CPC, difficulty numbers, AdSense application status and private strategy notes. Each article should answer the question clearly, explain preparation, identify hazards, link to reputable published guidance and provide helpful related links.
+
+Advertising or affiliate partnerships can be considered later. Disclose arrangements accurately and implement legally appropriate cookie/consent choices before switching them on. No site should claim ad-network approval without evidence.
+
+## Before advertising or launch
+
+- Verify actual production analytics, cookies, logs and consent handling against the privacy policy.
+- Set up and test a genuine contact address or private support method; do not publish a nonfunctional mailbox.
+- Independently verify source URLs and safety nuances before expanding the library, including individual body-condition advice and food-specific allergies.
+- Verify usage rights/attribution for external photographs; replace unsuitable images.
+- Add a genuine veterinary reviewer only after an actual documented review and explicit permission to display credentials.
+- Monitor search performance privately in Search Console; do not expose analytics values to website visitors.
