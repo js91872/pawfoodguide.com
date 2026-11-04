@@ -55,7 +55,7 @@ export default function CalculatorPage() {
               Understanding the Veterinary 10% Daily Treat Rule
             </h2>
             <p className="mt-2 text-sm text-slate-600 leading-relaxed">
-              Every board-certified veterinary nutritionist adheres to the 10% rule: complementary foods, fruits, training treats, and table scraps must never exceed 10% of a dog&apos;s total daily caloric intake.
+              A widely used veterinary nutrition guideline is that complementary foods, fruits, training treats, and table scraps should contribute no more than 10% of a dog&apos;s daily calorie intake.
             </p>
           </div>
 
@@ -66,7 +66,7 @@ export default function CalculatorPage() {
                 Why the 10% Rule is Essential
               </h3>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Complete and balanced commercial dog foods (or carefully formulated veterinary raw diets) are precisely engineered with essential amino acids, fatty acids, vitamins, and minerals. When treats exceed 10% of total calories, they dilute critical nutrients, leading to subclinical deficiencies and metabolic obesity.
+                Complete and balanced commercial dog foods (or an appropriately formulated veterinary diet) are precisely engineered with essential amino acids, fatty acids, vitamins, and minerals. When treats exceed 10% of total calories, they dilute critical nutrients, leading to subclinical deficiencies and metabolic obesity.
               </p>
             </div>
 
