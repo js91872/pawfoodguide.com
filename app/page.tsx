@@ -45,7 +45,7 @@ export default function HomePage() {
 
       <HomeFruitsGrid />
 
-      <section id="treat-calculator" className="bg-white py-14">
+      <section className="bg-white py-14">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="mb-6 flex items-center gap-3">
             <Calculator className="h-7 w-7 text-emerald-700" />
