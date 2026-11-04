@@ -13,7 +13,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://pawfoodguide.com'),
   title: {
-    default: 'PawFoodGuide — Can Dogs Eat This? Dog Food Safety Guides',
+    default: 'PawFoodGuide — Can Dogs Eat This?',
     template: '%s | PawFoodGuide',
   },
   description:
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://pawfoodguide.com',
     siteName: 'PawFoodGuide',
-    title: 'PawFoodGuide — Food Safety Answers for Dog Owners',
+    title: 'PawFoodGuide — What Can Dogs Eat?',
     description:
       'Clear dog food safety guides, preparation tips, and a practical treat portion calculator.',
     images: [
