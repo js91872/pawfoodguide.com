@@ -12,6 +12,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
+      url: `${baseUrl}/foods`,
+      lastModified: new Date('2026-11-04'),
+      changeFrequency: 'monthly',
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/fruits`,
       lastModified: new Date(),
       changeFrequency: 'daily',
@@ -57,7 +63,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const fruitRoutes: MetadataRoute.Sitemap = FRUITS_DATABASE.map((fruit) => ({
     url: `${baseUrl}/fruits/${fruit.slug}`,
-    lastModified: new Date(fruit.lastReviewedDate),
+    lastModified: new Date('2026-11-04'),
     changeFrequency: 'weekly',
     priority: 0.85,
   }));
