@@ -34,8 +34,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     return (
       fruit.name.toLowerCase().includes(q) ||
       fruit.scientificName.toLowerCase().includes(q) ||
-      fruit.zeroClickAnswer.toLowerCase().includes(q) ||
-      fruit.marketMetrics.primaryKeyword.toLowerCase().includes(q)
+      fruit.zeroClickAnswer.toLowerCase().includes(q)
     );
   });
 
@@ -45,14 +44,14 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         {/* Search Input Bar */}
         <div className="flex items-center px-4 py-3.5 border-b border-slate-200">
           <label htmlFor={searchInputId} className="sr-only">
-            Search canine fruit safety database
+            Search food safety guides
           </label>
           <Search className="h-5 w-5 text-slate-400 mr-3 shrink-0" />
           <input
             id={searchInputId}
             type="text"
             autoFocus
-            placeholder="Search fruits (e.g., Bananas, Grapes, Blueberries, Xylitol)..."
+            placeholder="Search fruit guides (e.g., bananas, grapes, apples)..."
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             className="w-full text-base text-slate-900 placeholder-slate-400 focus:outline-none bg-transparent"
