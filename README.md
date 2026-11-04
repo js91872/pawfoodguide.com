@@ -6,9 +6,8 @@
 
 - `/` — homepage, frequently asked food questions and guides
 - `/foods` — 22 common food guides by category
-- `/foods/[slug]` — individual food articles
+- `/food/can-dogs-eat-[name]` — individual food and fruit articles
 - `/fruits` — directory of 16 fruit guides
-- `/fruits/[slug]` — individual fruit articles
 - `/calculator` — estimated adult dog calorie and treat allowance, metric-first with pounds option
 - `/emergency` — worldwide emergency orientation with clearly labeled regional references
 - `/veterinary-standards` — sources and editorial approach
