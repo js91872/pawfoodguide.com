@@ -17,8 +17,8 @@ export default function SearchModal({isOpen,onClose}:Props){
  const matches=useMemo(()=>{
   const q=query.trim().toLowerCase();
   const items=[
-   ...FOOD_GUIDES.map(food=>({name:food.name,url:`/foods/${food.slug}`,summary:food.answer,keywords:food.aliases?.join(' ')??''})),
-   ...FRUITS_DATABASE.map(fruit=>({name:fruit.name,url:`/fruits/${fruit.slug}`,summary:getFruitAdvice(fruit.slug)?.answer??'',keywords:''})),
+   ...FOOD_GUIDES.map(food=>({name:food.name,url:`/food/can-dogs-eat-${food.slug}`,summary:food.answer,keywords:food.aliases?.join(' ')??''})),
+   ...FRUITS_DATABASE.map(fruit=>({name:fruit.name,url:`/food/can-dogs-eat-${fruit.slug}`,summary:getFruitAdvice(fruit.slug)?.answer??'',keywords:''})),
   ];
   if(!q)return items.slice(0,12);
   return items.filter(item=>`${item.name} ${item.summary} ${item.keywords}`.toLowerCase().includes(q)).slice(0,18);
