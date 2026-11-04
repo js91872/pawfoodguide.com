@@ -10,11 +10,12 @@ jobs:
   validate:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      issues: write
+      contents: write
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'push' && github.ref_name || '' }}
       - name: Node.js 22
         uses: actions/setup-node@v4
         with:
@@ -22,27 +23,19 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
       - name: Lint
-        id: lint
-        shell: bash
-        run: |
-          set -o pipefail
-          npm run lint 2>&1 | tee /tmp/pawfoodguide-lint.txt
-      - name: Report lint errors on pull request
-        if: failure() && steps.lint.outcome == 'failure' && github.event_name == 'pull_request'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          {
-            echo '### Automated lint diagnostics'
-            echo ''
-            echo '~~~text'
-            head -c 12000 /tmp/pawfoodguide-lint.txt
-            echo ''
-            echo '~~~'
-          } > /tmp/pawfoodguide-comment.md
-          gh api "repos/${{ github.repository }}/issues/${{ github.event.pull_request.number }}/comments" -F body=@/tmp/pawfoodguide-comment.md
+        run: npm run lint
       - name: Typecheck
         run: npx tsc --noEmit
       - name: Production build
         run: npm run build
+      - name: Synchronize lockfile on development branch
+        if: github.event_name == 'push' && github.ref == 'refs/heads/feat/consumer-first-dog-food-guides'
+        shell: bash
+        run: |
+          git add package-lock.json
+          if ! git diff --cached --quiet; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit -m "chore: synchronize dependency lockfile"
+            git push origin HEAD:feat/consumer-first-dog-food-guides
+          fi
