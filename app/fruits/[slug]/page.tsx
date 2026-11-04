@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { FRUITS_DATABASE, getFruitBySlug, getAllFruitSlugs } from '@/lib/fruits-data';
-import MarketMetricsCard from '@/components/MarketMetricsCard';
 import NutritionalTable from '@/components/NutritionalTable';
 import PreparationChecklist from '@/components/PreparationChecklist';
 import AccordionFaq from '@/components/AccordionFaq';
@@ -44,25 +43,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const primaryKeyword = fruit.marketMetrics.primaryKeyword;
   const isToxic = fruit.safetyStatus === 'toxic';
 
   const title = isToxic
-    ? `Can Dogs Eat ${fruit.name}? ⛔ TOXIC WARNING & Emergency Vet Guide`
-    : `Can Dogs Eat ${fruit.name}? Vet Safety, USDA Nutrition & Serving Limits`;
+    ? `Can Dogs Eat ${fruit.name}? Safety Risks and What to Do`
+    : `Can Dogs Eat ${fruit.name}? Safety, Preparation and Portions`;
 
-  const description = `${fruit.zeroClickAnswer} Verified with USDA FoodData Central (#${fruit.usda.fdcId}) and veterinary clinical guidelines.`;
+  const description = fruit.zeroClickAnswer;
 
   return {
     title,
     description,
-    keywords: [
-      primaryKeyword,
-      `are ${fruit.name.toLowerCase()} safe for dogs`,
-      `can puppies eat ${fruit.name.toLowerCase()}`,
-      `dog ${fruit.name.toLowerCase()} toxicity`,
-      ...fruit.marketMetrics.highIntentVariants.map((v) => v.keyword),
-    ],
     alternates: {
       canonical: `https://pawfoodguide.com/fruits/${fruit.slug}`,
     },
@@ -79,9 +70,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
           alt: fruit.imageAlt,
         },
       ],
-      publishedTime: '2024-01-15T08:00:00.000Z',
-      modifiedTime: `${fruit.lastReviewedDate}T12:00:00.000Z`,
-      authors: [fruit.reviewerName],
       section: 'Canine Nutrition',
     },
     twitter: {
@@ -157,7 +145,7 @@ export default async function FruitArticlePage({ params }: Props) {
 
               {/* FDC ID Badge */}
               <span className="rounded-lg bg-slate-100 px-3 py-1 font-mono text-xs font-semibold text-slate-600">
-                USDA FoodData Central #{fruit.usda.fdcId}
+                Nutrition per 100 g (reference data)
               </span>
             </div>
 
@@ -171,22 +159,11 @@ export default async function FruitArticlePage({ params }: Props) {
               </p>
             </div>
 
-            {/* Author / Clinical Reviewer Metadata Strip */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 border-y border-slate-100 py-3 text-xs text-slate-600">
-              <div className="flex items-center gap-2">
-                <UserCheck className="h-4 w-4 text-emerald-600" />
-                <span>
-                  Clinically Reviewed by <strong>{fruit.reviewerName}</strong>
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="h-4 w-4 text-emerald-600" />
-                <span>{fruit.reviewerTitle}</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Calendar className="h-4 w-4 text-slate-400" />
-                <span>Updated: {fruit.lastReviewedDate}</span>
-              </div>
+            {/* Article guidance and transparency */}
+            <div className="border-y border-slate-100 py-3 text-sm text-slate-600">
+              <span>Food safety guidance for dog owners · </span>
+              <Link href="/veterinary-standards" className="font-semibold text-emerald-700 hover:underline">How we research our guides</Link>
+              <span> · Always ask your veterinarian for individual medical advice.</span>
             </div>
 
             {/* FEATURE 1: DIRECT ZERO-CLICK ANSWER BLOCK FOR GOOGLE AI OVERVIEWS */}
@@ -204,7 +181,7 @@ export default async function FruitArticlePage({ params }: Props) {
                   <Sparkles className="h-4 w-4 text-emerald-700" />
                 )}
                 <span className={isToxic ? 'text-red-900' : 'text-emerald-900'}>
-                  Direct Veterinary Zero-Click Answer (AI Overview Benchmark)
+                  Quick answer
                 </span>
               </div>
               <p className="text-base sm:text-lg font-medium leading-relaxed">
@@ -227,9 +204,6 @@ export default async function FruitArticlePage({ params }: Props) {
               </div>
             </div>
           </div>
-
-          {/* FEATURE 2: UBERSUGGEST MARKET METRICS PANEL */}
-          <MarketMetricsCard metrics={fruit.marketMetrics} fruitName={fruit.name} />
 
           {/* FEATURE 4: TOXICOLOGY RISKS & WARNING BOX */}
           <div
@@ -261,10 +235,10 @@ export default async function FruitArticlePage({ params }: Props) {
               </div>
               <div>
                 <h3 className="text-xl font-bold text-slate-900">
-                  Toxicology Assessment & Canine Health Warnings
+                  What dog owners should know about risks
                 </h3>
                 <span className="text-xs text-slate-500">
-                  Active toxic agent: <strong className="text-slate-800">{fruit.toxicologyRisks.toxicAgent}</strong>
+                  Potential risk: <strong className="text-slate-800">{fruit.toxicologyRisks.toxicAgent}</strong>
                 </span>
               </div>
             </div>
@@ -276,7 +250,7 @@ export default async function FruitArticlePage({ params }: Props) {
             {/* Clinical signs */}
             <div className="mt-4 pt-4 border-t border-slate-200/60">
               <span className="text-xs font-bold uppercase tracking-wider text-slate-600 block mb-2">
-                Clinical Signs of Distress to Monitor:
+                Symptoms or warning signs to watch for:
               </span>
               <div className="flex flex-wrap gap-2">
                 {fruit.toxicologyRisks.clinicalSigns.map((sign) => (
@@ -294,7 +268,7 @@ export default async function FruitArticlePage({ params }: Props) {
             <div className="mt-5 rounded-xl bg-slate-900 p-4 text-white space-y-2">
               <div className="flex items-center gap-2 text-amber-400 font-bold text-xs uppercase">
                 <PhoneCall className="h-4 w-4" />
-                <span>Veterinary Emergency Protocol:</span>
+                <span>If your dog may be unwell:</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
                 {fruit.toxicologyRisks.emergencyAction}
@@ -322,10 +296,10 @@ export default async function FruitArticlePage({ params }: Props) {
               </div>
               <div>
                 <h3 className="text-lg font-bold text-slate-900">
-                  Canine Biological & Physiological Benefits
+                  Nutrition notes for dogs
                 </h3>
                 <p className="text-xs text-slate-500">
-                  Documented veterinary impacts on canine systems
+                  Nutrients in this food do not replace a complete and balanced diet
                 </p>
               </div>
             </div>
@@ -362,7 +336,7 @@ export default async function FruitArticlePage({ params }: Props) {
                 Interactive {fruit.name} Calorie & Treat Limit Calculator
               </h3>
               <span className="text-xs font-semibold text-emerald-700">
-                10% Treat Rule Engine
+                Treats: up to 10% of daily calories
               </span>
             </div>
             <TreatCalculator initialFruitSlug={fruit.slug} />
@@ -371,11 +345,11 @@ export default async function FruitArticlePage({ params }: Props) {
           {/* FEATURE 7: ACCORDION FAQ SECTION */}
           <AccordionFaq faqList={fruit.faqList} fruitName={fruit.name} />
 
-          {/* PEER-REVIEWED CITATIONS & REFERENCES */}
+          {/* SOURCE REFERENCES */}
           <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm text-xs text-slate-600 space-y-3">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
               <BookOpen className="h-4 w-4 text-emerald-700" />
-              Peer-Reviewed Veterinary Citations & Source Documentation:
+              Further reading and sources
             </h4>
             <ul className="list-disc pl-5 space-y-1.5 text-slate-500">
               {fruit.veterinaryCitations.map((citation) => (
@@ -384,10 +358,17 @@ export default async function FruitArticlePage({ params }: Props) {
                 </li>
               ))}
             </ul>
-            <p className="text-[11px] text-slate-400 pt-2 border-t border-slate-100">
-              Content adheres strictly to the American College of Veterinary Internal Medicine (ACVIM) and World Small Animal Veterinary Association (WSAVA) scientific guidelines.
-            </p>
+            <p className="text-[11px] text-slate-500 pt-2 border-t border-slate-100">These are source leads, not evidence of a completed veterinary review of this page. Verify individual claims with the linked source and your veterinarian.</p>
           </div>
+
+          <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
+            <h3 className="text-lg font-bold text-slate-900">Explore more dog food questions</h3>
+            <p className="mt-2 text-sm text-slate-700">Discover everyday foods, dangerous ingredients, and simple feeding tips.</p>
+            <div className="mt-4 flex flex-wrap gap-3">
+              <Link href="/foods" className="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-bold text-white">Dog food safety guide</Link>
+              <Link href="/fruits" className="rounded-lg border border-emerald-400 bg-white px-4 py-2 text-sm font-bold text-emerald-900">Compare fruits</Link>
+            </div>
+          </aside>
 
           {/* Bottom Back Button */}
           <div className="pt-4 text-center">
@@ -396,7 +377,7 @@ export default async function FruitArticlePage({ params }: Props) {
               className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-5 py-2.5 text-sm font-bold text-slate-700 shadow-sm hover:bg-slate-50 hover:text-slate-900 transition"
             >
               <ArrowLeft className="h-4 w-4" />
-              <span>Back to Complete 16-Fruit Database Index</span>
+              <span>Browse all fruit guides</span>
             </Link>
           </div>
         </div>
