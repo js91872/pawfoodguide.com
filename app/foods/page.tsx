@@ -22,7 +22,7 @@ export default function FoodHub(){
     <h2 className="text-2xl font-extrabold text-slate-900">{group}</h2>
     <p className="mt-2 text-sm text-slate-600">{group==='Foods to avoid'?'Keep these ingredients out of reach and seek professional advice after suspected ingestion.':'Preparation, portion and ingredient details matter. Read the full guide before feeding.'}</p>
     <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-    {FOOD_GUIDES.filter(food=>food.group===group).map(food=><Link key={food.slug} href={`/foods/${food.slug}`} className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 hover:shadow-md">
+    {FOOD_GUIDES.filter(food=>food.group===group).map(food=><Link key={food.slug} href={`/food/can-dogs-eat-${food.slug}`} className="group flex flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-emerald-300 hover:shadow-md">
     <div className="flex items-center justify-between gap-2"><h3 className="text-lg font-bold text-slate-900 group-hover:text-emerald-800">{food.name}</h3>{food.status==='unsafe'?<span className="rounded-full bg-red-100 px-2 py-1 text-xs font-bold text-red-900">Avoid</span>:food.status==='caution'?<span className="rounded-full bg-amber-100 px-2 py-1 text-xs font-bold text-amber-900">Check first</span>:<span className="rounded-full bg-emerald-100 px-2 py-1 text-xs font-bold text-emerald-900">Small amounts</span>}</div>
     <p className="mt-3 flex-1 text-sm leading-relaxed text-slate-600">{food.answer}</p>
     <span className="mt-4 inline-flex items-center gap-1 text-sm font-bold text-emerald-800">Read safety guide <ArrowRight className="h-4 w-4"/></span>
