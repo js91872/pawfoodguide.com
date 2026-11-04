@@ -17,17 +17,6 @@ export interface UsdaNutrition {
   keyMicronutrients: string[];
 }
 
-export interface MarketMetrics {
-  primaryKeyword: string;
-  monthlySearchVolumeUS: number;
-  monthlySearchVolumeUK: number;
-  globalSearchVolume: number;
-  seoDifficulty: number; // 1-100
-  cpcUSD: number;
-  searchIntent: 'Informational' | 'Commercial' | 'Emergency';
-  highIntentVariants: { keyword: string; volume: number; cpc: number }[];
-}
-
 export interface ServingByWeight {
   toy: string; // < 20 lbs / < 9 kg
   smallMedium: string; // 20 - 50 lbs / 9 - 23 kg
@@ -48,7 +37,6 @@ export interface FruitArticle {
   heroImage: string;
   imageAlt: string;
   imageCredit: string;
-  marketMetrics: MarketMetrics;
   usda: UsdaNutrition;
   canineBiologicalBenefits: {
     title: string;
@@ -75,15 +63,6 @@ export interface FruitArticle {
     question: string;
     answer: string;
   }[];
-  veterinaryCitations: {
-    source: string;
-    title: string;
-    year: number;
-    url?: string;
-  }[];
-  lastReviewedDate: string;
-  reviewerName: string;
-  reviewerTitle: string;
 }
 
 export interface DogProfile {
