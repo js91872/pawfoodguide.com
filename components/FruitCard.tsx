@@ -70,7 +70,7 @@ export default function FruitCard({ fruit }: FruitCardProps) {
             {fruit.name}
           </h3>
           <span className="text-[11px] font-semibold text-slate-600">
-            FDC #{fruit.usda.fdcId}
+            Nutrition per 100g
           </span>
         </div>
 
@@ -97,7 +97,7 @@ export default function FruitCard({ fruit }: FruitCardProps) {
         {/* Primary Search Query and CTA */}
         <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between">
           <span className="text-[11px] font-medium text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md">
-            &quot;{fruit.marketMetrics.primaryKeyword}&quot;
+            Read safety and serving tips
           </span>
           <Link
             href={`/fruits/${fruit.slug}`}
