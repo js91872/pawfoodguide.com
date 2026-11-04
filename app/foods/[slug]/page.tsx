@@ -33,7 +33,7 @@ export default async function FoodArticle({params}:Props){
  <p className="font-semibold text-emerald-700">{food.group} · Dog food safety</p>
  <h1 className="mt-2 text-3xl font-extrabold text-slate-900 sm:text-5xl">Can dogs eat {food.name.toLowerCase()}?</h1>
  <div className={`mt-6 rounded-xl border p-5 ${urgent?'border-red-300 bg-red-50':caution?'border-amber-300 bg-amber-50':'border-emerald-200 bg-emerald-50'}`}>
- <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900">{(urgent||caution)&&<AlertTriangle className="h-5 w-5 text-red-700"/> Quick answer</h2>
+ <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900">{(urgent||caution)&&<AlertTriangle className="h-5 w-5 text-red-700"/>} Quick answer</h2>
  <p className="mt-2 text-lg leading-relaxed text-slate-900">{food.answer}</p>
  </div></header>
  <div className="mt-7 grid gap-7 lg:grid-cols-3">
