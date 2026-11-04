@@ -340,21 +340,17 @@ export default async function FruitArticlePage({ params }: Props) {
           {/* FEATURE 7: ACCORDION FAQ SECTION */}
           <AccordionFaq faqList={fruit.faqList} fruitName={fruit.name} />
 
-          {/* SOURCE REFERENCES */}
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm text-xs text-slate-600 space-y-3">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-900 flex items-center gap-1.5">
-              <BookOpen className="h-4 w-4 text-emerald-700" />
-              Further reading and sources
-            </h4>
-            <ul className="list-disc pl-5 space-y-1.5 text-slate-500">
-              {fruit.veterinaryCitations.map((citation) => (
-                <li key={citation.title}>
-                  <strong>{citation.source}</strong> ({citation.year}): &quot;{citation.title}&quot;.
-                </li>
-              ))}
+          {/* Source transparency: external references are not endorsements */}
+          <section className="rounded-2xl border border-slate-200 bg-white p-6 text-sm text-slate-700">
+            <h2 className="text-lg font-bold text-slate-900">Sources and further reading</h2>
+            <p className="mt-2">For dog food poisoning questions, consult a veterinarian promptly. We use public information from established veterinary and nutrition resources; this article has not been individually certified by those organizations.</p>
+            <ul className="mt-3 list-disc space-y-2 pl-5">
+              <li><a href="https://www.aspca.org/pet-care/aspca-poison-control/people-foods-avoid-feeding-your-pets" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 underline">ASPCA: People foods to avoid feeding pets</a></li>
+              <li><a href="https://wsava.org/global-guidelines/global-nutrition-guidelines/" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 underline">WSAVA: Global nutrition guidelines</a></li>
+              <li><a href="https://fdc.nal.usda.gov/" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 underline">USDA FoodData Central: Food composition reference</a></li>
+              {fruit.slug === 'grapes' && <li><a href="https://www.vet.cornell.edu/departments-centers-and-institutes/riney-canine-health-center/canine-health-information/grape-and-raisin-toxicity" target="_blank" rel="noopener noreferrer" className="font-semibold text-emerald-700 underline">Cornell: Grape and raisin toxicity in dogs</a></li>}
             </ul>
-            <p className="text-[11px] text-slate-500 pt-2 border-t border-slate-100">These are source leads, not evidence of a completed veterinary review of this page. Verify individual claims with the linked source and your veterinarian.</p>
-          </div>
+          </section>
 
           <aside className="rounded-2xl border border-emerald-200 bg-emerald-50 p-6">
             <h3 className="text-lg font-bold text-slate-900">Explore more dog food questions</h3>
