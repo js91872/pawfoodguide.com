@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 export const metadata: Metadata = {
- title: 'About PawFoodGuide | Dog Food Safety Made Simple',
+ title: 'About PawFoodGuide | Helpful Answers for Dog Owners',
  description: 'Why PawFoodGuide exists and how we help dog owners understand everyday food safety.',
  alternates: { canonical: 'https://pawfoodguide.com/about' },
 };
