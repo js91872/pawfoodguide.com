@@ -17,17 +17,8 @@ export const metadata: Metadata = {
     template: '%s | PawFoodGuide',
   },
   description:
-    'Find out which common foods dogs can eat, what to avoid, how to prepare safe treats, and how to estimate portions.',
-  keywords: [
-    'can dogs eat fruit',
-    'dog fruit safety guide',
-    'can dogs eat bananas',
-    'can dogs eat apples',
-    'can dogs eat blueberries',
-    'dog calorie calculator',
-    'veterinary canine nutrition',
-    'dog treat 10 percent rule',
-  ],
+    'Find out which common foods dogs can eat, what to avoid, how to prepare safe treats, and how to understand treat calories.',
+  keywords: ['can dogs eat this', 'foods dogs can eat', 'dog food safety', 'can dogs eat grapes', 'dog treat calculator'],
   authors: [{ name: 'PawFoodGuide' }],
   creator: 'PawFoodGuide',
   publisher: 'PawFoodGuide',
@@ -38,7 +29,6 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
     url: 'https://pawfoodguide.com',
     siteName: 'PawFoodGuide',
     title: 'PawFoodGuide — Food Safety Answers for Dog Owners',
