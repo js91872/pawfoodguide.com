@@ -15,7 +15,7 @@ export default function NutritionalTable({ usda, fruitName }: NutritionalTablePr
         <div>
           <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-800">
             <Database className="h-3.5 w-3.5" />
-            USDA FoodData Central Verified Lab Profile
+            Food nutrition reference (per 100 g)
           </div>
           <h3 className="text-lg font-bold text-slate-900 mt-1">
             {fruitName} Nutritional Composition (per 100g raw)
